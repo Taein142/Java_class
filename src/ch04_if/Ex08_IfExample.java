@@ -16,7 +16,9 @@ public class Ex08_IfExample {
 
 		System.out.println("서로 다른 정수 3개를 입력하세요.");
 		Scanner scanner = new Scanner(System.in);
-		int a = 0, b = 0, c = 0;
+		int a;
+		int b;
+		int c;
 		System.out.print("첫번째 숫자: ");
 		a = scanner.nextInt();
 		System.out.print("두번째 숫자: ");
