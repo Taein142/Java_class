@@ -14,7 +14,7 @@ public class Ex02_ForEx {
         }
 //        5 4 3 2 1 출력
         for(int k=5; k>0; k--){
-            System.out.println("k="+k);
+            System.out.println("kㄴ="+k);
         }
     }
 }
