@@ -30,6 +30,7 @@ public class Ex01 {
 		System.out.println(divResult);
 		int remainResult = num1%num2;
 		System.out.println(remainResult);
+//		합 sum, 차 sub, 곱 mul, 나누기 div, 나머지 remain
 	}
 
 }

@@ -18,6 +18,8 @@ public class Ex01_Variables {
 		System.out.println(mobile);
 //		System.out.println(height1);
 		System.out.println("저의 이름은 " + name + "입니다.");
+		System.out.println("만나서 반갑습니다.");
+		System.out.println("제 나이는 " + age + "이고, 키는 " + height + "입니다.");
 		
 	}
 
