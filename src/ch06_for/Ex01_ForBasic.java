@@ -28,6 +28,5 @@ public class Ex01_ForBasic {
     }
         System.out.println("반복문 종료 후 j = " + j);
 
-
     }
 }
