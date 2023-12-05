@@ -9,9 +9,9 @@ public class Ex05_ForEx {
 //  출력 예
 //  110부터 555까지의 합은 ???입니다.
         Scanner scanner = new Scanner(System.in);
-        System.out.println("시작값을 설정하세요");
+        System.out.print("시작값을 설정하세요. ");
         int num1 = scanner.nextInt();
-        System.out.println("끝값을 설정하세요");
+        System.out.print("끝값을 설정하세요. ");
         int num2 = scanner.nextInt();
         System.out.println("시작값: " + num1);
         System.out.println("끝값: " + num2);
