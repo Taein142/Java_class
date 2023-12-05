@@ -36,8 +36,5 @@ public class Ex09_ForEx {
                 }
             }
         }
-
-
-
     }
 }
