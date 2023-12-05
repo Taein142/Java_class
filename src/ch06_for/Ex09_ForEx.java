@@ -33,6 +33,7 @@ public class Ex09_ForEx {
                 if((a*i) + (b*j) == c){
                     System.out.println("x가 " + i + " 이고, y가 " + j + " 일때,");
                     System.out.println(a + "x + " + b + "y = " + c + " 이다.");
+                    System.out.println("");
                 }
             }
         }
