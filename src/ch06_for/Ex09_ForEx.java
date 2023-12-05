@@ -11,11 +11,8 @@ public class Ex09_ForEx {
         * 출력(정답)
         * 5,8  10,4,
         */
-
-        int x = 1;
-        int y = 1;
-        for(int i=x; i<=10; i++){
-            for(int j =y; j<=10; j++){
+        for(int i=1; i<=10; i++){
+            for(int j =1; j<=10; j++){
                 if((4*i)+(5*j)==60){
                     System.out.print(i + ", " + j);
                     System.out.print("\t");
@@ -25,16 +22,17 @@ public class Ex09_ForEx {
         System.out.print("\n");
 
         Scanner scanner = new Scanner(System.in);
-        System.out.println("a를 입력하세요. ");
+        System.out.print("a를 입력하세요. ");
         int a = scanner.nextInt();
-        System.out.println("b를 입력하세요. ");
+        System.out.print("b를 입력하세요. ");
         int b = scanner.nextInt();
-        System.out.println("c를 입력하세요. ");
+        System.out.print("c를 입력하세요. ");
         int c = scanner.nextInt();
-        for(int i=x; i<=10; i++){
-            for(int j =y; j<=10; j++){
-                if((a*i)+(b*j)==c){
-                    System.out.println(a + "x" + "+" + b + "y" + "=" + c);
+        for(int i = 1; i <= 100; i++){
+            for(int j = 1; j <= 100; j++){
+                if((a*i) + (b*j) == c){
+                    System.out.println("x가 " + i + " 이고, y가 " + j + " 일때,");
+                    System.out.println(a + "x + " + b + "y = " + c + " 이다.");
                 }
             }
         }
