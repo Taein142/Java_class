@@ -6,7 +6,7 @@ public class Ex03_ForEx {
         int sum = 0;
         //변수를 계산에 사용할 때 가장 기본 값인 0이라는 초기값을 주는 것이
         // 추후에 생길수 있는 에러를 줄일 수 있다.
-        for (int i=1; i<=10; i++){
+        for (int i = 1; i <= 10; i++) {
             sum = sum + i;
             System.out.println("i =  " + i);
             System.out.println("sum =  " + sum);
