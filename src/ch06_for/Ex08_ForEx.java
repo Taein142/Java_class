@@ -14,5 +14,14 @@ public class Ex08_ForEx {
                 }
             }
         }
+        /*
+         * 밑에 if문이 아니라
+         * System.out.print("\t"); 입력하고
+         * 안쪽 for 문 나와서
+         * System.out.print("\n"); 입력해도 된다.
+         *
+         * \t - 탭 효과
+         * \n - 엔터 엔터 효과
+         * */
     }
 }
