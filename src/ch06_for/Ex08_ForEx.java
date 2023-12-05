@@ -10,7 +10,7 @@ public class Ex08_ForEx {
                 if (j < 9) {
                     System.out.print(i + " * " + j + " = " + (i * j) + "   ");
                 } else {
-                    System.out.println(i + " * " + j + " = " + (i * j) + "   ");
+                    System.out.println(i + " * " + j + " = " + (i * j));
                 }
             }
         }
