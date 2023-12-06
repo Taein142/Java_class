@@ -1,6 +1,6 @@
 package ch07_while;
 
-public class WhileEx {
+public class Ex02_WhileEx {
     public static void main(String[] args) {
         /*
         * while 문으로 1부터 10까지의 합계 출력
@@ -37,5 +37,19 @@ public class WhileEx {
             }
         }
         System.out.println(sum2);
+
+        int k =1;
+        int sum3 = 0;
+        while (k<=10){
+            System.out.print(k);
+            sum3+=k;
+            if (k<10) {
+                System.out.print("+");
+            } else {
+                System.out.print("=");
+            }
+            k++;
+        }
+        System.out.println(sum3);
     }
 }
