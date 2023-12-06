@@ -1,6 +1,5 @@
 package ch07_while;
 
-import javax.swing.*;
 import java.util.Scanner;
 
 public class Ex05_WhileEx {
