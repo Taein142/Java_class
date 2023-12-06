@@ -35,6 +35,10 @@ public class Ex03_Random {
         int int2 = (int) double1;
         System.out.println("int2 = " + int2);
 
+        int j = 10;
+        double k = 1.2345;
+        double l = (double) j*k;
+        System.out.println(l);
 
     }
 }
