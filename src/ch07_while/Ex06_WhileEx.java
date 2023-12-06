@@ -27,14 +27,14 @@ public class Ex06_WhileEx {
         System.out.println("정수를 입력하고 마지막에 0을 입력하세요");
         while (run) {
             int num = scanner.nextInt();
-            if(num!=0){
+            if (num != 0) {
                 count++;
-                sum = sum+num;
-            }else {
+                sum = sum + num;
+            } else {
                 run = false;
                 System.out.println("입력한 숫자는 " + count + "개 입니다.");
                 System.out.println("총 합은 " + sum + " 입니다.");
-                double ave = (double) sum/count;
+                double ave = (double) sum / count;
                 System.out.println("평균은 " + ave + " 입니다.");
             }
         }

@@ -8,6 +8,7 @@ public class Ex07_WhileEx {
 
         int n = 1;
         int sum = 1;
+
         while (sum != 100) {
             n++;
             if (n % 2 == 1) {
