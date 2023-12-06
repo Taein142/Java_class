@@ -18,7 +18,8 @@ public class Ex11_ForEx {
 //            System.out.print("\n");   // 줄을 바꾸기 위한 용도
 //        }
 
-//        심화 모래시계 별찍기
+//        심화 별찍기 모래시계
+//        빈칸 찍기
         for (int i=5; i>=1; i--){
             for (int j=0; j<5-i; j++){
                 System.out.print(" ");
@@ -27,6 +28,7 @@ public class Ex11_ForEx {
             }
             System.out.print("\n");
         }
+//        * 찍기
         for (int i=1; i<=5; i++){
             for (int j=1; j<=5-i; j++) {
                 System.out.print(" ");
