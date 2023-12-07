@@ -16,9 +16,9 @@ public class Ex02_ArrayBasic {
         }
         // numbers1에 저장된 모든 데이터의 총합, 평균 계산
         int sum = 0;
-        int ave = 0;
-        for (int i = 0; i < numbers1.length; i++) {
-            sum+=numbers1[i];
+        int ave;
+        for (int j = 0; j < numbers1.length; j++) {
+            sum+=numbers1[j];
         }
         ave = sum/ numbers1.length;
         System.out.println(sum);
