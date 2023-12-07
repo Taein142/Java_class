@@ -10,7 +10,7 @@ public class Ex04_ArrayEx {
         입력했을 때 그 숫자가 몇 번 인덱스에 있는지 출력
         */
         Scanner scanner = new Scanner(System.in);
-        System.out.println("숫자 : ");
+        System.out.print("숫자 : ");
         int x = scanner.nextInt();
         for (int y = 0; y < num.length; y++) {
             if (x == num[y]) {
