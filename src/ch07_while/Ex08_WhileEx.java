@@ -7,7 +7,6 @@ public class Ex08_WhileEx {
         int money= 213613;
         Boolean run = true;
         int sum = money;
-//        System.out.println("현재 잔액은 " + m + " 원입니다.");
         Scanner scanner = new Scanner(System.in);
 
         while (run) {
