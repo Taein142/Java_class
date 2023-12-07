@@ -14,6 +14,7 @@ public class Ex03_ArrayEx {
         int[] numbers1 = new int[3];
         Scanner scanner = new Scanner(System.in);
         for (int i = 0; i < numbers1.length; i++) {
+            System.out.println(i + "번 인덱스 값을 입력하세요 : ");
             numbers1[i] = scanner.nextInt();
             sum += numbers1[i];
         }
