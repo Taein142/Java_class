@@ -9,7 +9,7 @@ public class Ex03_ArrayEx {
         실행 했을 때 스캐너로 정수값을 읿력받아 배열에 저장
         배열에 저장된 값의 총합, 평균 계산
         */
-        int sum =0;
+        int sum = 0;
         int ave;
         int[] numbers1 = new int[3];
         Scanner scanner = new Scanner(System.in);
@@ -18,7 +18,7 @@ public class Ex03_ArrayEx {
             sum += numbers1[i];
         }
         System.out.println("저장소 numbers에 저장된 값의 총합은 " + sum + " 이고,");
-        ave = sum/ numbers1.length;
+        ave = sum / numbers1.length;
         System.out.println("평균은 " + ave + " 이다.");
     }
 }
