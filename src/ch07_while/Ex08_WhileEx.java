@@ -4,28 +4,28 @@ import java.util.Scanner;
 
 public class Ex08_WhileEx {
     public static void main(String[] args) {
-        int m = 213613;
+        int money= 213613;
         Boolean run = true;
-        int sum = m;
+        int sum = money;
 //        System.out.println("현재 잔액은 " + m + " 원입니다.");
         Scanner scanner = new Scanner(System.in);
 
         while (run) {
             System.out.println("1. 예금 | 2. 출금 | 3. 잔고 | 4. 종료");
             System.out.print("선택>");
-            int n = scanner.nextInt();
-            switch (n) {
+            int number = scanner.nextInt();
+            switch (number) {
                 case 1:
                     System.out.print("예금액> ");
-                    int a = scanner.nextInt();
-                    sum = sum + a;
+                    int plus = scanner.nextInt();
+                    sum = sum + plus;
                     System.out.println("현재 잔액은 " + sum + "원입니다.");
                     break;
                 case 2:
                     System.out.print("출금액> ");
-                    int b = scanner.nextInt();
-                    if (sum >= b){
-                        sum = sum - b;
+                    int minus = scanner.nextInt();
+                    if (sum >= minus){
+                        sum = sum - minus;
                         System.out.println("현재 잔액은 " + sum + "원입니다.");
                     }else {
                         System.out.println("잔액이 부족합니다.");
