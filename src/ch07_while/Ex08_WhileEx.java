@@ -24,8 +24,12 @@ public class Ex08_WhileEx {
                 case 2:
                     System.out.print("출금액> ");
                     int b = scanner.nextInt();
-                    sum = sum - b;
-                    System.out.println("현재 잔액은 " + sum + "원입니다.");
+                    if (sum >= b){
+                        sum = sum - b;
+                        System.out.println("현재 잔액은 " + sum + "원입니다.");
+                    }else {
+                        System.out.println("잔액이 부족합니다.");
+                    }
                     break;
                 case 3:
                     System.out.println("젼재 잔액은 " + sum + "원입니다.");
@@ -34,9 +38,10 @@ public class Ex08_WhileEx {
                     System.out.println("종료합니다.");
                     run = false;
                     break;
-
+                default:
+                    System.out.println("설정된 숫자(1~4)를 입력해주세요");
+                    break;
             }
         }
-
     }
 }
