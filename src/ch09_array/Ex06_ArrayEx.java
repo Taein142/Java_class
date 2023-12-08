@@ -10,10 +10,6 @@ public class Ex06_ArrayEx {
         입력된 값 중에서 가장 큰 값을 출력
          */
 
-
-
-
-        // 답안 1
         int max = 0;
         Scanner scanner = new Scanner(System.in);
         int[] numbers1 = new int[5];
@@ -21,7 +17,7 @@ public class Ex06_ArrayEx {
             System.out.print(i + "번 인덱스 값을 입력하세요 : ");
             numbers1[i] = scanner.nextInt(); // 배열 값에 저장
             // 최댓값 찾기
-            if (max < numbers1[i]){
+            if (max < numbers1[i]) {
                 max = numbers1[i];
             }
         }
