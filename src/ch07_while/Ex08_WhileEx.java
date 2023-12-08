@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Ex08_WhileEx {
     public static void main(String[] args) {
         int money= 213613;
-        Boolean run = true;
+        boolean run = true;
         int sum = money;
         Scanner scanner = new Scanner(System.in);
 

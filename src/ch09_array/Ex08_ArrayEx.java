@@ -12,6 +12,12 @@ public class Ex08_ArrayEx {
 
         Scanner scanner = new Scanner(System.in);
         int[] num = null;
+        System.out.print("배열의 크기: ");
         num = new int[scanner.nextInt()];
+        if (num.length > 0) {
+            System.out.println("배열 num의 크기는 " + num.length + "이다.");
+        } else {
+            System.out.println("null");
+        }
     }
 }
