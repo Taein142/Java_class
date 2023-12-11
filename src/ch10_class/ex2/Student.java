@@ -8,7 +8,6 @@ public class Student {
 
     // 기본생성자
     public Student() {
-        System.out.println("");
         System.out.println("Student 기본생성자");
     }
 }

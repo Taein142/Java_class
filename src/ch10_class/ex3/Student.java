@@ -13,7 +13,6 @@ public class Student {
 
     // 매개변수가 있는 생성자
     public Student(String studentName) {
-        // soutp = 파라미터를 찍어주는 print
         System.out.println("name을 매개변수로 하는 생성자");
         System.out.println("studentName = " + studentName);
     }
@@ -23,9 +22,8 @@ public class Student {
         System.out.println("studentName = " + studentName + ", studentMajor = " + studentMajor);
     }
 
-    // 이름, 과 전화번호를 매개변수로 하는 생성자
-    public Student(String studentName,String studentMajor, String studentMobile){
+    // 이름, 학과, 전화번호를 매개변수로 하는 생성자
+    public Student(String studentName, String studentMajor, String studentMobile) {
         System.out.println("studentName = " + studentName + ", studentMajor = " + studentMajor + ", studentMobile = " + studentMobile);
     }
-
 }
