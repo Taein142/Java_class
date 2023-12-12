@@ -15,12 +15,8 @@ public class StudentMain {
         Student student2 = new Student("박뭐시기", "17-71024342", "철학과", "010-2781-9935");
 
         // 각각의 객체에서 print 메서드 호출하여 필드값 출력
-        Student print = new Student();
-        System.out.println(print);
-//        student1.print();
-//        student2.print();
-//        System.out.println(student1.print());
-//        System.out.println(student2.print());
+        student1.print();
+        student2.print();
 
 
     }
