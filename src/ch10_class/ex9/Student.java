@@ -53,7 +53,10 @@ public class Student {
 
     // 모든 필드를 매개변수로 하는 생성자
     public Student(String studentName, String studentNumber, String studentMajor, String studentMobile) {
-
+//        getStudentName();
+//        getStudentNumber();
+//        getStudentMajor();
+//        getStudentMobile();
     }
 
     // 필드에 저장된 겂을 출력하는 print() 메서드
