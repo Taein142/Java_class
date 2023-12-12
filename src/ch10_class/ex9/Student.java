@@ -13,9 +13,6 @@ public class Student {
     private String studentMajor;
     private String studentMobile;
 
-    Student student1 = null;
-    Student student2 = null;
-
     // 각 필드의 getter/setter 메서드
     public void setStudentName(String studentName) {
         this.studentName = studentName;
@@ -56,20 +53,17 @@ public class Student {
 
     // 모든 필드를 매개변수로 하는 생성자
     public Student(String studentName, String studentNumber, String studentMajor, String studentMobile) {
-
+        this.studentName = studentName;
+        this.studentNumber = studentNumber;
+        this.studentMajor = studentMajor;
+        this.studentMobile = studentMobile;
     }
 
     // 필드에 저장된 겂을 출력하는 print() 메서드
-    public void print(Student student) {
-        String name = student1.getStudentName();
-        String number = student1.getStudentNumber();
-        String major = student1.getStudentMajor();
-        String mobile = student1.getStudentMobile();
-        System.out.println(student1);
-        String name2 = student2.getStudentName();
-        String number2 = student2.getStudentNumber();
-        String major2 = student2.getStudentMajor();
-        String mobile2 = student2.getStudentMobile();
-        System.out.println(student2);
+    public void print() {
+        System.out.println("이름: " + studentName);
+        System.out.println("학번: " + studentNumber);
+        System.out.println("전공: " + studentMajor);
+        System.out.println("휴대폰 번호: " + studentMobile);
     }
 }
