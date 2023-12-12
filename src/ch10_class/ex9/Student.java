@@ -48,6 +48,7 @@ public class Student {
         this.studentMobile = studentMobile;
     }
 
+    // 생성자는 클래스와 대소문자까지 다 똑같으며 void, return 타입이 없다.
     // 기본생성자
     public Student() {
 
@@ -63,9 +64,9 @@ public class Student {
 
     // 필드에 저장된 겂을 출력하는 print() 메서드
     public void print() {
-        System.out.println("이름: " + studentName);
-        System.out.println("학번: " + studentNumber);
-        System.out.println("전공: " + studentMajor);
-        System.out.println("휴대폰 번호: " + studentMobile);
+        System.out.print("이름: " + studentName);
+        System.out.print(" 학번: " + studentNumber);
+        System.out.print(" 전공: " + studentMajor);
+        System.out.println(" 휴대폰 번호: " + studentMobile);
     }
 }
