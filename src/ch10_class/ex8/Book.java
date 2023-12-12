@@ -10,17 +10,17 @@ public class Book {
     }
 
     // bookTilte getter
-    public String getBookTitle(){
+    public String getBookTitle() {
         return bookTitle;
     }
 
     // bookAuthor setter
-    public void setBookAuthor(String bookAuthor){
+    public void setBookAuthor(String bookAuthor) {
         this.bookAuthor = bookAuthor;
     }
 
     // bookAuthor getter
-    public String getBookAuthor(){
+    public String getBookAuthor() {
         return bookAuthor;
     }
 }
