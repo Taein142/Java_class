@@ -24,7 +24,6 @@ public class CalculatorMain {
                 System.out.print("두번째 숫자> ");
                 num2 = scanner.nextInt();
                 calculator.sum(num1, num2);
-//                run = false;
 
             } else if (choose == 2) {
                 System.out.print("첫번째 숫자> ");
@@ -32,7 +31,6 @@ public class CalculatorMain {
                 System.out.print("두번째 숫자> ");
                 num2 = scanner.nextInt();
                 calculator.sub(num1, num2);
-//                run = false;
 
             } else if (choose == 3) {
                 System.out.print("첫번째 숫자> ");
@@ -41,12 +39,11 @@ public class CalculatorMain {
                 num2 = scanner.nextInt();
                 int result = calculator.mul(num1, num2);
                 System.out.println("계산 결과는 " + result + " 이다.");
-//                run = false;
 
             } else if (choose == 4) {
                 int result = calculator.div();
                 System.out.println("계산 결과는 " + result + " 이다.");
-//                run = false;
+
             } else {
                 System.out.println("계산기 종료");
                 run = false;
