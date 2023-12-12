@@ -14,36 +14,38 @@ public class Student {
     private String studentMobile;
 
     // 각 필드의 getter/setter 메서드
-    public void setStudentName(String studentName) {
-        this.studentName = studentName;
-    }
-
+    // getter/setter의 단축키
+    //alt insert
     public String getStudentName() {
         return studentName;
     }
 
-    public void setStudentNumber(String studentNumber) {
-        this.studentNumber = studentNumber;
+    public void setStudentName(String studentName) {
+        this.studentName = studentName;
     }
 
     public String getStudentNumber() {
         return studentNumber;
     }
 
-    public void setStudentMajor(String studentMajor) {
-        this.studentMajor = studentMajor;
+    public void setStudentNumber(String studentNumber) {
+        this.studentNumber = studentNumber;
     }
 
     public String getStudentMajor() {
         return studentMajor;
     }
 
-    public void setStudentMobile(String studentMobile) {
-        this.studentMobile = studentMobile;
+    public void setStudentMajor(String studentMajor) {
+        this.studentMajor = studentMajor;
     }
 
     public String getStudentMobile() {
         return studentMobile;
+    }
+
+    public void setStudentMobile(String studentMobile) {
+        this.studentMobile = studentMobile;
     }
 
     // 기본생성자
