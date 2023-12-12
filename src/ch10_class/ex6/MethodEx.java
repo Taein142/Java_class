@@ -29,7 +29,7 @@ public class MethodEx {
         return num1 + num2;
     }
 
-    // 매개변수o, 리턴x
+    // 매개변수o, 리턴o
     public String method5(String param1, int param2) {
         System.out.println("param1 = " + param1 + ", param2 = " + param2);
         String result = "전달받은 값은 " + param1 + "과 " + param2 + "입니다.";
