@@ -32,7 +32,7 @@ public class MethodEx {
     // 매개변수o, 리턴x
     public String method5(String param1, int param2) {
         System.out.println("param1 = " + param1 + ", param2 = " + param2);
-        String result = "전달받은 값은" + param1 + " 과 " + param2 + "입니다.";
+        String result = "전달받은 값은 " + param1 + "과 " + param2 + "입니다.";
         return result;
     }
 
