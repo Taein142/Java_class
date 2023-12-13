@@ -1,6 +1,7 @@
 package ch10_class.ex9;
 
 public class Student {
+    // 필드, getter/setter, 기본생성자, 매개변수 생성자, toString
     /*
      * 필드
      * 이름(studentName)
@@ -68,5 +69,20 @@ public class Student {
         System.out.print(" 학번: " + studentNumber);
         System.out.print(" 전공: " + studentMajor);
         System.out.println(" 휴대폰 번호: " + studentMobile);
+    }
+
+    /*
+    * method name: toString
+    * return type: String
+    * parameter: x
+    * */
+    @Override
+    public String toString() {
+        return "Student{" +
+                "studentName='" + studentName + '\'' +
+                ", studentNumber='" + studentNumber + '\'' +
+                ", studentMajor='" + studentMajor + '\'' +
+                ", studentMobile='" + studentMobile + '\'' +
+                '}';
     }
 }
