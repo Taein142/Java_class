@@ -26,7 +26,9 @@ public class MethodEx {
     public int method4() {
         int num1 = 10;
         int num2 = 20;
-        return num1 + num2;
+        int sum = num1+num2;
+//        return num1 + num2;
+        return sum;
     }
 
     // 매개변수o, 리턴o

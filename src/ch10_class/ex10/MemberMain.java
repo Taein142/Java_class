@@ -17,8 +17,8 @@ public class MemberMain {
         int choose = 0;
         String email;
         String password;
+        Member member1 = null;
         int failNumber = 0;
-        Member member1 = new Member();
 
         while (run) {
             System.out.println("----------------------------");
@@ -28,6 +28,7 @@ public class MemberMain {
             choose = scanner.nextInt();
 
             if (choose == 1) {
+                member1 = new Member();
                 System.out.print("이메일 입력: ");
                 member1.setMemberEmail(scanner.next());
                 System.out.print("비밀번호 입력: ");
@@ -38,12 +39,25 @@ public class MemberMain {
                 member1.setMemberMobile(scanner.next());
 
             } else if (choose == 2) {
+
                 System.out.print("이메일 입력: ");
                 email = scanner.next();
                 System.out.print("비밀번호 입력: ");
                 password = scanner.next();
                 member1.memberLogin(email, password);
-                System.out.println(member1);
+                boolean loginResult = member1.memberLogin(email, password);
+                if (loginResult) {
+                    System.out.println("로그인 성공.");
+                    System.out.println(member1);
+                } else {
+                    failNumber += 1;
+                    System.out.println("로그인 실패. 다시 입력해주세요");
+                    System.out.println("로그인 실패 횟수: " + failNumber + "회");
+                    if (failNumber == 3) {
+                        System.out.println("시스템을 종료합니다.");
+                        run = false;
+                    }
+                }
 
             } else if (choose == 3) {
                 System.out.println("시스템을 종료합니다.");

@@ -1,6 +1,5 @@
 package ch10_class.ex10;
 
-import java.util.Objects;
 
 /**
  * 회원 정보 클래스
@@ -71,24 +70,7 @@ public class Member {
         this.memberMobile = memberMobile;
     }
 
-    // 로그인 처리 메서드
-    public boolean memberLogin(String memberEmail, String memberPassword) {
-        int failNumber = 0;
-        boolean run = true;
-        if (Objects.equals(memberEmail, this.memberEmail) && Objects.equals(memberPassword, this.memberPassword)) {
-            System.out.println("로그인 성공.");
-            return true;
-        } else {
-            System.out.println("로그인 실패. 다시 입력해주세요");
-            System.out.println("로그인 실패 횟수: " + failNumber + "회");
-            failNumber += 1;
-            if (failNumber == 3) {
-                run = false;
-            }
-            return false;
-        }
-    }
-
+    // toString(Override)
     @Override
     public String toString() {
         return "Member{" +
@@ -98,4 +80,17 @@ public class Member {
                 ", memberMobile='" + memberMobile + '\'' +
                 '}';
     }
+
+    // 로그인 처리 메서드
+    public boolean memberLogin(String memberEmail, String memberPassword) {
+
+        boolean run = true;
+        if (memberEmail.equals(this.memberEmail) && memberPassword.equals(this.memberPassword)) {
+            return true;
+        } else {
+           return false;
+        }
+    }
+
+
 }
