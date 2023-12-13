@@ -1,4 +1,4 @@
-package ch10_class.ex5;
+package ch10_class.ex05;
 
 public class Book {
     // filed = 도서관에서 책을 표현하기 위한것. (제목, 출판사, 저자 등등)
