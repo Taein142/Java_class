@@ -36,4 +36,10 @@ public class Book {
         this.isbn = isbn;
         this.bookPrice = bookPrice;
     }
+
+//    int scores[0][1][2] = new scores[0][1][2] {
+//        {}
+//        {}
+//        {}
+//    }
 }
