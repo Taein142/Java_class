@@ -60,12 +60,28 @@ public class Book {
         this.bookPublisher = bookPublisher;
     }
 
-    public Book() {
 
+    private static Long inValue = 1L;
+    // static 지우면 id 값이 전부 1로 나옴.
+     /*
+     * 자바에는 stack 과 heap 영역이 있음
+     * 객체는 들어간 데이터가 많아서 전부 heap 영역에 저장한다.
+     * 그런데 두 영역 말고도 메서드 영역이 따로 있다.
+     * static 도 이 메서드 영역에 존재.
+     * 자기 값을 계속 유지할 수 있음.
+     * static 으로 정의를 안하면 이 객체를 불러올 때마다 1인 상태이기에
+     * 지속적으로 1로 출력되었고
+     * static에 저장되어 있으면 객체를 불러와도 초기화되지 않고 값을 유지하며 활용할 수 있다.
+     * */
+
+
+    public Book() {
+        this.id = inValue++;
     }
 
-    public Book(Long id, String bookTitle, String bookAuthor, int bookPrice, String bookPublisher) {
-        this.id = id;
+    public Book(String bookTitle, String bookAuthor, int bookPrice, String bookPublisher) {
+
+        this.id = inValue++;
         this.bookTitle = bookTitle;
         this.bookAuthor = bookAuthor;
         this.bookPrice = bookPrice;
