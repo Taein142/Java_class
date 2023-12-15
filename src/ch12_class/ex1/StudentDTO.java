@@ -7,6 +7,14 @@ public class StudentDTO {
     private String studentMajor;
     private String studentMobile;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getStudentName() {
         return studentName;
     }
@@ -42,9 +50,9 @@ public class StudentDTO {
     public StudentDTO() {
     }
 
-    private  static Long inValue = 1L;
+    private static Long idValue = 1L;
     public StudentDTO(String studentName, String studentNumber, String studentMajor, String studentMobile) {
-        this.id = inValue++;
+        this.id = idValue++;
         this.studentName = studentName;
         this.studentNumber = studentNumber;
         this.studentMajor = studentMajor;
