@@ -34,7 +34,7 @@ public class StudentRepository {
 
     public boolean method3(StudentDTO studentDTO) {
 //        if (studentDTO.getId() == null) {
-//            System.out.println("큰일났다");
+//            System.out.println("비~~~~상~~~~!!!!!");
 //        }
         System.out.println("studentDTO = " + studentDTO);
 //        boolean result = studentDTOList.add(studentDTO);

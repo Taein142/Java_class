@@ -32,9 +32,9 @@ public class StudentService {
         boolean result = studentRepository.method3(studentDTO);
         System.out.println("result = " + result);
         if (result) {
-            System.out.println("학생등록 성공");
+            System.out.println("학생이 등록되었습니다.");
         } else {
-            System.out.println("학생등록 실패");
+            System.out.println("학생 등록에 실패하였습니다.");
         }
     }
 
