@@ -93,15 +93,6 @@ public class BookService {
         }
     }
 
-    /*
-     * 가격 수정 메서드
-     * name: changePrice
-     * parameter: x
-     * return: x
-     * 실행내용
-     * 입력되어있는 도서의 id를 입력하고
-     * 변경된 도서의 정보를 출력
-     * */
     public void update() {
         // 수정할 id를 입력받음
         // 해당 id 도서가 있다면 수정할 가격을 입력받고 수정 처리
