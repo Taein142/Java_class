@@ -18,16 +18,22 @@ public class BookMain {
             selectNo = scan.nextInt();
             if (selectNo == 1) {
                 // 호출하는 문장 작성
+                bookService.save();
             } else if (selectNo == 2) {
                 // 호출하는 문장 작성
+                bookService.findAll();
             } else if (selectNo == 3) {
                 // 호출하는 문장 작성
+                bookService.findById();
             } else if (selectNo == 4) {
                 // 호출하는 문장 작성
+                bookService.findByTitle();
             } else if (selectNo == 5) {
-                // 호출하는 문장 작성
+//                 호출하는 문장 작성
+                bookService.changePrice();
             } else if (selectNo == 6) {
                 // 호출하는 문장 작성
+                bookService.removeBook();
             } else if (selectNo == 0) {
                 run = false;
             }
