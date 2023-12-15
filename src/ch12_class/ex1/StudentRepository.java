@@ -31,7 +31,21 @@ public class StudentRepository {
     * 실행내용: 전달받은 DTO 객체를 List에 저장하고 결과를 리턴
     * */
     public boolean method3(StudentDTO studentDTO){
+        System.out.println("studentDTO = " + studentDTO);
+//        if (studentDTO.getId()==null){
+//            System.out.println("비~~~~상~~~~!!!!!!!!!!");
+//        }
         studentDTOList.add(studentDTO);
-        return true;
+        boolean result = studentDTOList.add(studentDTO);
+        return result;
     }
+
+    /*
+    * returen type: List
+    * */
+    public List<StudentDTO> method4(){
+        return studentDTOList;
+    }
+
+
 }
