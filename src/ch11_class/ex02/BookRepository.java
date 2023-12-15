@@ -49,6 +49,12 @@ public class BookRepository {
             }
         }
         return bookDTO;
+        // for each문
+        // for(BookDTO bookDTo01: bookDTOList){
+        // if(id.equlas(bookDTO1.getId()){
+        //    bookDTO = bookDTO1;
+        // }
+
     }
 
     /**
@@ -79,6 +85,18 @@ public class BookRepository {
      * service로 부터 변경된 가격을 전달받고 DTO에 등록 및 결과를 리턴
      * */
     Scanner scanner = new Scanner(System.in);
+
+    public List<BookDTO> search(String bookTitle) {
+        // 검색결과를 담을 List 선언
+        List<BookDTO> bookDTOS = new ArrayList<>();
+        for (int i =0;i<bookDTOList.size();i++){
+            // 저장되어 있는 도서명에 검색어가 포함되어 있으면 true
+            if(bookDTOList.get(i).getBookTitle().contains(bookTitle)){
+                // 조건을 만족하면 bookDTOS에 추가
+                bookDTOS.add(bookDTOList.get(i));
+            }
+        }return bookDTOS;
+    }
 
 //    public BookDTO changePrice(Long id) {
 //        BookDTO bookDTO = null;

@@ -103,11 +103,24 @@ public class BookService {
      * 변경된 도서의 정보를 출력
      * */
     public void changePrice() {
-        int bookPrice =0;
-        Long id = 0L;
-        id = scanner.nextLong();;
-        BookDTO bookDTO = bookRepository.changePrice(id);
-
 
     }
+
+    public void removeBook() {
+    }
+
+    public void search() {
+        System.out.print("검색어: ");
+        String bookTitle = scanner.next();
+        List<BookDTO> bookDTOList = bookRepository.search(bookTitle);
+        if (bookDTOList.size() > 0) {
+            for (BookDTO bookDTO : bookDTOList) {
+                System.out.println("bookDTO = " + bookDTO);
+            }
+        } else {
+            System.out.println("검색 결과가 없습니다.");
+        }
+    }
+
+
 }
