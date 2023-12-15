@@ -78,36 +78,31 @@ public class BookRepository {
 
     /*
      * 가격수정 메서드
-     * name: changePrice
-     * parameter: int
-     * return: BookDTO
-     * 실행내용
-     * service로 부터 변경된 가격을 전달받고 DTO에 등록 및 결과를 리턴
-     * */
+     */
+    public boolean update(Long id, int bookPrice) {
+        boolean result = false;
+        for (int i = 0; i < bookDTOList.size(); i++) {
+            if (id.equals(bookDTOList.get(i).getId())) {
+                bookDTOList.get(i).setBookPrice(bookPrice);
+                result = true;
+            }
+        }
+        return result;
+    }
+
+
     Scanner scanner = new Scanner(System.in);
 
     public List<BookDTO> search(String bookTitle) {
         // 검색결과를 담을 List 선언
         List<BookDTO> bookDTOS = new ArrayList<>();
-        for (int i =0;i<bookDTOList.size();i++){
+        for (int i = 0; i < bookDTOList.size(); i++) {
             // 저장되어 있는 도서명에 검색어가 포함되어 있으면 true
-            if(bookDTOList.get(i).getBookTitle().contains(bookTitle)){
+            if (bookDTOList.get(i).getBookTitle().contains(bookTitle)) {
                 // 조건을 만족하면 bookDTOS에 추가
                 bookDTOS.add(bookDTOList.get(i));
             }
-        }return bookDTOS;
+        }
+        return bookDTOS;
     }
-
-//    public BookDTO changePrice(Long id) {
-//        BookDTO bookDTO = null;
-//        int bookPrice = 0;
-//        for (int i = 0; i < bookDTOList.size(); i++) {
-//            if (id.equals(bookDTOList.get(i).getId())) {
-//                System.out.print("변경할 도서의 id번호를 입력해주세요: ");
-//                bookPrice = scanner.nextInt();
-//                bookDTO = bookDTOList.get(i);
-//            }
-//        }
-//        return bookDTO;
-//    }
 }
