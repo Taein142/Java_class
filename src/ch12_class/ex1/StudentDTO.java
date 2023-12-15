@@ -7,14 +7,6 @@ public class StudentDTO {
     private String studentMajor;
     private String studentMobile;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public String getStudentName() {
         return studentName;
     }
