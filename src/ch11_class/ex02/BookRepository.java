@@ -90,6 +90,19 @@ public class BookRepository {
         return result;
     }
 
+    public boolean delete(Long id) {
+        boolean result = false;
+        for (int i = 0; i < bookDTOList.size(); i++) {
+            if (id.equals(bookDTOList.get(i).getId())) {
+                bookDTOList.remove(i);
+                result = true;
+            }
+        }
+        return result;
+    }
+
+
+
 
     Scanner scanner = new Scanner(System.in);
 
