@@ -1,6 +1,8 @@
 package ch11_class.ex02;
 
 public class BookDTO {
+    // DTO 클래스는 내가 필요한 정보를 묶어서 저장한 저장소
+    // 데이터를 전달하는 용도
     /**
      * 도서 클래스
      * <p>

@@ -50,7 +50,7 @@ public class BookRepository {
         }
         return bookDTO;
         // for each문
-        // for(BookDTO bookDTo01: bookDTOList){
+        // for(BookDTO bookDTO01: bookDTOList){
         // if(id.equlas(bookDTO1.getId()){
         //    bookDTO = bookDTO1;
         // }
@@ -101,9 +101,6 @@ public class BookRepository {
         return result;
     }
 
-
-
-
     Scanner scanner = new Scanner(System.in);
 
     public List<BookDTO> search(String bookTitle) {
@@ -113,6 +110,7 @@ public class BookRepository {
             // 저장되어 있는 도서명에 검색어가 포함되어 있으면 true
             if (bookDTOList.get(i).getBookTitle().contains(bookTitle)) {
                 // 조건을 만족하면 bookDTOS에 추가
+                // 리스트에 담긴 제목이 저기(service)서 넘겨받은 얘(입력한 단어)가 포함되어 있는가
                 bookDTOS.add(bookDTOList.get(i));
             }
         }

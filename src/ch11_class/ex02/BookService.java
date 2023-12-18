@@ -29,7 +29,11 @@ public class BookService {
         System.out.print("출판사을 입력하세요: ");
         String bookPublisher = scanner.next();
         BookDTO bookDTO = new BookDTO(bookName, bookAuthor, bookPrice, bookPublisher);
+        // 우리 클래스에서 책이라는 것은 이러한 정보로 이루어져야 해.
+        // 우린 이런 정보를 다른 클래스와 주고 받을 필요가 있어
         boolean result = bookRepository.save(bookDTO);
+        // Repository의 save 메서드로 전달
+        // Repository에서 return 받은 값을 result에 저장
         System.out.println("result = " + result);
         if (result) {
             System.out.println("도서가 정상적으로 등록되었습니다.");
@@ -48,6 +52,8 @@ public class BookService {
      */
     public void findAll() {
         List<BookDTO> bookDTOList = bookRepository.findAll();
+        // 리턴이 있으면 반드시 좌변이 있어야 한다.
+        // 리스트 '전체'를 받았기에 parameter가 필요 없다.
         for (BookDTO bookDTO : bookDTOList) {
             System.out.println("bookDTO = " + bookDTO);
         }
@@ -63,9 +69,10 @@ public class BookService {
      * 없으면 없다고 출력
      */
     public void findById() {
-        System.out.println("검색할 도서의 id를 입력하세요: ");
+        System.out.print("검색할 도서의 id를 입력하세요: ");
         Long id = scanner.nextLong();
         BookDTO bookDTO = bookRepository.findById(id);
+        // bookRepository에서의 findById 메서드로부터 id 값을 가져온다.
         if (bookDTO != null) {
             System.out.println("bookDTO = " + bookDTO);
         } else {
@@ -83,7 +90,7 @@ public class BookService {
      * 없으면 없다고 출력
      */
     public void findByTitle() {
-        System.out.println("검색할 도서의 제목를 입력하세요: ");
+        System.out.print("검색할 도서의 제목를 입력하세요: ");
         String bookTitle = scanner.next();
         BookDTO bookDTO = bookRepository.findByTitle(bookTitle);
         if (bookTitle != null) {
@@ -100,10 +107,14 @@ public class BookService {
         System.out.println("수정할 도서의 id를 입력하세요: ");
         Long id = scanner.nextLong();
         BookDTO bookDTO = bookRepository.findById(id);
+        // 받은 id값과 동인한 정보(id)가 있는지 확인
+        // 있으면 bookDTO에 해당 id 값을 저장
         if (bookDTO != null) {
             System.out.println("수정할 가격을 입력하세요: ");
             int bookPrice = scanner.nextInt();
             boolean updateResult = bookRepository.update(id, bookPrice);
+            // 저장한 id 값과 입력받은 bookPrice 값을 repository의 update 메서드에 넘겨주고
+            // 리턴받은 값을 updateResult에 저장한다.
             if (updateResult) {
                 System.out.println("수정 성공");
             } else {
@@ -129,6 +140,7 @@ public class BookService {
         System.out.print("검색어: ");
         String bookTitle = scanner.next();
         List<BookDTO> bookDTOList = bookRepository.search(bookTitle);
+        // 검색 결과가 여러개일 수 있으니 List타입으로 받는다.
         if (bookDTOList.size() > 0) {
             for (BookDTO bookDTO : bookDTOList) {
                 System.out.println("bookDTO = " + bookDTO);
