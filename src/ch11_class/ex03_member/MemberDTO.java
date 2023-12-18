@@ -1,4 +1,4 @@
-package ch11_class.member;
+package ch11_class.ex03_member;
 
 public class MemberDTO {
     //    ## 자바 회원 프로젝트

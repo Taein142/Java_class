@@ -1,6 +1,4 @@
-package ch11_class.member;
-
-import ch11_class.ex02.BookDTO;
+package ch11_class.ex03_member;
 
 import java.util.ArrayList;
 import java.util.List;

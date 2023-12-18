@@ -1,4 +1,4 @@
-package ch11_class.member;
+package ch11_class.ex03_member;
 
 import java.util.Scanner;
 import java.util.List;
