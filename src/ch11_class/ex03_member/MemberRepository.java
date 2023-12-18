@@ -14,7 +14,7 @@ public class MemberRepository {
     public MemberDTO login(String memberEmail, String memberPassword) {
         MemberDTO memberDTO = null;
         for (int i = 0; i < memberDTOList.size(); i++) {
-            if (Objects.equals(memberEmail, memberDTOList.get(i).getMemberEmail()) && Objects.equals(memberPassword, memberDTOList.get(i).getMemberPassword())) {
+            if (Objects.equals(memberEmail, memberDTOList.get(i).getMemberEmail())&& Objects.equals(memberPassword, memberDTOList.get(i).getMemberPassword())) {
                 memberDTO = memberDTOList.get(i);
             }
         }
@@ -24,7 +24,7 @@ public class MemberRepository {
     public boolean update(String loginEmail, String newMemberName, String newMemberMobile) {
         boolean result = false;
         for (int i = 0; i < memberDTOList.size(); i++) {
-            memberDTOList.get(i).setMemberMobile(newMemberName);
+            memberDTOList.get(i).setMemberName(newMemberName);
             memberDTOList.get(i).setMemberMobile(newMemberMobile);
             result = true;
         }
