@@ -32,7 +32,7 @@ public class BookService {
         // 우리 클래스에서 책이라는 것은 이러한 정보로 이루어져야 해.
         // 우린 이런 정보를 다른 클래스와 주고 받을 필요가 있어
         boolean result = bookRepository.save(bookDTO);
-        // Repository의 save 메서드로 전달
+        // Repository의 save 메서드로 bookDTO 값을 전달
         // Repository에서 return 받은 값을 result에 저장
         System.out.println("result = " + result);
         if (result) {
