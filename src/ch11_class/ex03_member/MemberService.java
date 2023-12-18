@@ -7,12 +7,11 @@ public class MemberService {
     private static String loginEmail = null;
     MemberRepository memberRepository = new MemberRepository();
     Scanner scanner = new Scanner(System.in);
-    String memberEmail;
-    String memberPassword;
 
     public void join() {
         // 중복체크 결과를 담을 변수
         boolean checkResult = false;
+        String memberEmail;
         System.out.println("회원정보를 입력해주세요.");
         do {
             System.out.print("이메일: ");
@@ -47,7 +46,7 @@ public class MemberService {
         System.out.print("이메일: ");
         memberEmail = scanner.next();
         System.out.print("비밀번호: ");
-        memberPassword = scanner.next();
+        String memberPassword = scanner.next();
         MemberDTO loginResult = memberRepository.login(memberEmail, memberPassword);
         if (loginResult != null) {
             loginEmail = memberEmail;
