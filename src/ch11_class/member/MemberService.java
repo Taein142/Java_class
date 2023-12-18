@@ -1,7 +1,5 @@
 package ch11_class.member;
 
-import ch11_class.ex02.BookDTO;
-
 import java.util.Scanner;
 import java.util.List;
 
