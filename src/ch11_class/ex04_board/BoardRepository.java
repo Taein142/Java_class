@@ -31,9 +31,6 @@ public class BoardRepository {
             if (id.equals(boardDTOList.get(i).getId())) {
                 boardDTO = boardDTOList.get(i);
                 boardDTO.view();
-
-
-                // 기존의 조회수 값을 가져와서 여기서 1개 늘려야됨.
             }
         }
         return boardDTO;
