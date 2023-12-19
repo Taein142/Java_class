@@ -13,6 +13,11 @@ public class BoardRepository {
     public List<BoardDTO> boardIndex() {
         return boardDTOList;
     }
+    /* 선생님 답안
+    public List<BoardDTO> findAll() {
+        return boardDTOList;
+    }
+    */
 
     public BoardDTO check(Long id, String boardPass) {
         BoardDTO check = null;
@@ -24,16 +29,27 @@ public class BoardRepository {
         return check;
     }
 
-    public BoardDTO boardInqure(Long id) {
-        // boardDTO로 리턴받고 조회수를 증가시켜줄거야
-        BoardDTO boardDTO = null;
+    public boolean updateHits(Long id) {
         for (int i = 0; i < boardDTOList.size(); i++) {
             if (id.equals(boardDTOList.get(i).getId())) {
-                boardDTO = boardDTOList.get(i);
-                boardDTO.view();
+                // 기존 조회수 값을 가져옴
+                int hits = boardDTOList.get(i).getBoardHits();
+                // 1 증가 시킴
+                hits += 1;
+                boardDTOList.get(i).setBoardHits(hits);
+                return true;
             }
         }
-        return boardDTO;
+        return false;
+    }
+
+    public BoardDTO boardInqure(Long id) {
+        for (int i = 0; i < boardDTOList.size(); i++) {
+            if (id.equals(boardDTOList.get(i).getId())) {
+                return boardDTOList.get(i);
+            }
+        }
+        return null;
     }
 
     public boolean boardUpdate(String boardTitle, String boardContents) {

@@ -33,6 +33,15 @@ public class BoardService {
         List<BoardDTO> boardDTOList = boardRepository.boardIndex();
         System.out.println("boardDTOList = " + boardDTOList);
     }
+    /* 선생님 답안
+    public void findAll() {
+        List<BoardDTO> boardDTOList = boardRepository.findAll();
+        System.out.println("id\t" + "title\t" + "writer\t" + "hits\t");
+        for (BoardDTO boardDTO: boardDTOList) {
+            System.out.println(boardDTO.getId() + "\t" + boardDTO.getBoardTitle() + "\t" +
+                    boardDTO.getBoardWriter() + "\t" + boardDTO.getBoardHits() + "\t");
+        }
+    }*/
 
     public void boardInquire() {
 //        - 글조회
@@ -40,9 +49,12 @@ public class BoardService {
 //          - 상세 내용 출력 이전에 해당 게시글의 조회수 값을 1 증가시켜줘야 함.
         System.out.print("개시글 번호를 입력해주세요: ");
         Long id = scanner.nextLong();
-        BoardDTO boardDTO = boardRepository.boardInqure(id);
-        if (boardDTO != null) {
-            System.out.println(boardDTO);
+        // 1. 조회수를 1 증가
+        boolean result = boardRepository.updateHits(id);
+        // 2. 상세내용 가져옴
+        if (result) {
+            BoardDTO boardDTO = boardRepository.boardInqure(id);
+            System.out.println("boardDTO = " + boardDTO);
         } else {
             System.out.println("번호를 다시 입력해주세요: ");
         }
@@ -71,7 +83,7 @@ public class BoardService {
                 System.out.println("수정 중 오류가 발생하였습니다.");
             }
         } else {
-            System.out.println("아이디 혹은 비밀번호가 틀렸습니다.");
+            System.out.println("개시글이 존재하지 않거나 비밀번호가 틀렸습니다..");
         }
     }
 

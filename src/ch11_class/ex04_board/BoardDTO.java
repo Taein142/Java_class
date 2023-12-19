@@ -66,9 +66,6 @@ public class BoardDTO {
         return boardPass;
     }
 
-    public BoardDTO() {
-    }
-
     public void setBoardPass(String boardPass) {
         this.boardPass = boardPass;
     }
@@ -81,11 +78,10 @@ public class BoardDTO {
         this.boardHits = boardHits;
     }
 
-    private static Long inValue = 1L;
-
-    public void view() {
-        boardHits += 1;
+    public BoardDTO() {
     }
+
+    private static Long inValue = 1L;
 
 
     public BoardDTO(String boardTitle, String boardWriter, String boardContents, String boardPass) {
@@ -94,6 +90,7 @@ public class BoardDTO {
         this.boardWriter = boardWriter;
         this.boardContents = boardContents;
         this.boardPass = boardPass;
+        this.boardHits = 0;
     }
 
     @Override
@@ -102,6 +99,8 @@ public class BoardDTO {
                 "id=" + id +
                 ", boardTitle='" + boardTitle + '\'' +
                 ", boardWriter='" + boardWriter + '\'' +
+                ", boardContents='" + boardContents + '\'' +
+                ", boardPass='" + boardPass + '\'' +
                 ", boardHits=" + boardHits +
                 '}';
     }
