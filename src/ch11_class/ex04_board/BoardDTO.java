@@ -95,7 +95,6 @@ public class BoardDTO {
 
     private static Long inValue = 1L;
 
-
     public BoardDTO(String boardTitle, String boardWriter, String boardContents, String boardPass) {
         this.id = inValue++;
         this.boardTitle = boardTitle;
