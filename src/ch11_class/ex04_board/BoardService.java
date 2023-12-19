@@ -9,103 +9,97 @@ public class BoardService {
     BoardRepository boardRepository = new BoardRepository();
     Scanner scanner = new Scanner(System.in);
 
-    public void boardCreate() {
-        System.out.println("글을 작성해주세요");
+    public void save() {
         System.out.print("제목: ");
         String boardTitle = scanner.next();
         System.out.print("작성자: ");
         String boardWriter = scanner.next();
-        System.out.print("내용: ");
-        String blank = scanner.nextLine();
-        String boardContents = scanner.nextLine();
         System.out.print("비밀번호: ");
         String boardPass = scanner.next();
-        BoardDTO boardDTO = new BoardDTO(boardTitle, boardWriter, boardContents, boardPass);
-        boolean result = boardRepository.boardCreate(boardDTO);
+        System.out.print("내용: ");
+        String boardContents = scanner.next();
+        BoardDTO boardDTO = new BoardDTO(boardTitle, boardWriter, boardPass, boardContents);
+        boolean result = boardRepository.save(boardDTO);
         if (result) {
-            System.out.println("작성이 완료되었습니다.");
+            System.out.println("글작성 완료");
         } else {
-            System.out.println("예상치 못한 오류로 인하여 작성이 최소되었습니다.");
+            System.out.println("글작성 실패");
         }
     }
 
-    public void boardIndex() {
-        List<BoardDTO> boardDTOList = boardRepository.boardIndex();
+    public void findAll() {
+        List<BoardDTO> boardDTOList = boardRepository.findAll();
         listPrint(boardDTOList);
     }
 
-    public void boardInquire() {
-//        - 글조회
-//          - 목록에서 게시글 번호를 입력하면 해당 글의 상세 내용을 보여줌
-//          - 상세 내용 출력 이전에 해당 게시글의 조회수 값을 1 증가시켜줘야 함.
-        System.out.print("개시글 번호를 입력해주세요: ");
+    public void findById() {
+        System.out.print("조회 id: ");
         Long id = scanner.nextLong();
         // 1. 조회수를 1 증가
         boolean result = boardRepository.updateHits(id);
         // 2. 상세내용 가져옴
         if (result) {
-            BoardDTO boardDTO = boardRepository.boardInqure(id);
+            BoardDTO boardDTO = boardRepository.findById(id);
             System.out.println("boardDTO = " + boardDTO);
         } else {
-            System.out.println("번호를 다시 입력해주세요: ");
+            System.out.println("요청하신 게시글은 존재하지 않습니다!");
         }
     }
 
-    public void boardUpdate() {
-//      - 글수정
-//          - 수정할 글번호를 입력 받고 비밀번호도 입력 받아서 비밀번호가 일치하면 수정할 제목, 내용을 입력받고 수정 처리.
-//          - 비밀번호가 틀리면 틀렸다는 메시지 출력
-        System.out.print("수정할 글번호를 입력해주세요: ");
+    public void update() {
+        System.out.print("수정할 id: ");
         Long id = scanner.nextLong();
-        System.out.print("비밀번호를 입력해주세요: ");
+        System.out.print("비밀번호: ");
         String boardPass = scanner.next();
-        BoardDTO boardDTO = boardRepository.check(id, boardPass);
+        BoardDTO boardDTO = boardRepository.findById(id);
+        // 게시글 있는지 확인
         if (boardDTO != null) {
-            System.out.print("수정할 제목을 입력해주세요: ");
-            String boardTitle = scanner.next();
-            System.out.print("수정할 내용을 입력해주세요: ");
-            String black = scanner.nextLine();
-            String boardContents = scanner.nextLine();
-            boolean result = boardRepository.boardUpdate(boardTitle, boardContents);
-            if (result) {
-                System.out.println("내용이 수정되었습니다.");
-                System.out.println(boardDTO);
+            // 비밀번호 검증
+            if (boardPass.equals(boardDTO.getBoardPass())) {
+                // 비밀번호가 맞으면 수정할 제목, 내용 입력받고 수정처리
+                System.out.print("수정 제목: ");
+                String boardTitle = scanner.next();
+                System.out.print("수정 내용: ");
+                String boardContents = scanner.next();
+                boolean result = boardRepository.update(id, boardTitle, boardContents);
+                if (result) {
+                    System.out.println("수정 완료");
+                } else {
+                    System.out.println("수정 실패");
+                }
             } else {
-                System.out.println("수정 중 오류가 발생하였습니다.");
+                System.out.println("비밀번호가 일치하지 않습니다!");
             }
         } else {
-            System.out.println("개시글이 존재하지 않거나 비밀번호가 틀렸습니다..");
+            System.out.println("요청하신 게시글은 존재하지 않습니다!");
         }
     }
 
-    public void boardRemove() {
-//        - 글삭제
-//          - 수정할 글번호를 입력 받고 비밀번호도 입력 받아서 비밀번호가 일치하면 글삭제 처리
-//          - 비밀번호가 틀리면 틀렸다는 메시지 출력
-        System.out.print("삭제할 글번호를 입력해주세요 ");
+    public void delete() {
+        System.out.print("수정할 id: ");
         Long id = scanner.nextLong();
-        System.out.print("비밀번호를 입력해주세요 ");
+        System.out.print("비밀번호: ");
         String boardPass = scanner.next();
-        BoardDTO checkResult = boardRepository.check(id, boardPass);
-        if (checkResult != null) {
-            boolean result = boardRepository.boardRemove(id);
-            if (result) {
-                System.out.println("글이 삭제되었습니다.");
+        BoardDTO boardDTO = boardRepository.findById(id);
+        if (boardDTO != null) {
+            if (boardPass.equals(boardDTO.getBoardPass())) {
+                boolean result = boardRepository.delete(id);
+                if (result) {
+                    System.out.println("삭제 완료");
+                } else {
+                    System.out.println("삭제 실패");
+                }
             } else {
-                System.out.println("알수 없는 오류로 인하여 해당 작업이 진행되지 않았습니다.");
+                System.out.println("비밀번호가 일치하지 않습니다!");
             }
-        } else {
-            System.out.println("글이 존재하지 않거나 입력 오류입니다.");
+            System.out.println("요청하신 게시글은 존재하지 않습니다!");
         }
     }
 
-    public void boardSearch() {
-//        - 검색
-//          - 제목으로만 검색가능
-//          - 입력한 검색어가 포함된 결과를 목록으로 출력
-        System.out.print("검색를 입력해주세요: ");
-        String findWord = scanner.nextLine();
-        List<BoardDTO> searchList = boardRepository.boardSearch(findWord);
+    public void search() {
+        System.out.print("검색어: ");
+        String q = scanner.next();
+        List<BoardDTO> searchList = boardRepository.search(q);
         if (searchList.size() > 0) {
             System.out.println("검색 결과");
             // 출력 전용 메서드로 검색결과 리스트를 넘겨줌
@@ -116,7 +110,7 @@ public class BoardService {
     }
 
     // 목록 출력 전용 메서드
-    // findAll, search 메서드로부터 list데이터를 전달받아서 출력을 하는 베서드
+    // findAll, search 메서드로 부터 list 데이터를 전달 받아서 출력을 하는 메서드
     private void listPrint(List<BoardDTO> boardDTOList) {
         System.out.println("id\t" + "title\t" + "writer\t" + "hits\t" + "date\t");
         for (BoardDTO boardDTO: boardDTOList) {

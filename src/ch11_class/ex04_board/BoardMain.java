@@ -4,33 +4,30 @@ import java.util.Scanner;
 
 public class BoardMain {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner scan = new Scanner(System.in);
         BoardService boardService = new BoardService();
         boolean run = true;
         int selectNo = 0;
         while (run) {
-            System.out.println("========================================================");
-            System.out.println("1.글작성 2.글목록 3.글조회 4.글수정 5.글삭제 6.검색 0.종료");
-            System.out.println("========================================================");
-            selectNo = scanner.nextInt();
+            System.out.println("-----------------------------------------------------------------------------------------");
+            System.out.println("1.글작성 | 2.글목록 | 3.글조회 | 4.글수정 | 5.글삭제 | 6.검색 | 0.종료");
+            System.out.println("-----------------------------------------------------------------------------------------");
+            System.out.print("선택> ");
+            selectNo = scan.nextInt();
             if (selectNo == 1) {
-                boardService.boardCreate();
+                boardService.save();
             } else if (selectNo == 2) {
-                boardService.boardIndex();
+                boardService.findAll();
             } else if (selectNo == 3) {
-                boardService.boardInquire();
+                boardService.findById();
             } else if (selectNo == 4) {
-                boardService.boardUpdate();
+                boardService.update();
             } else if (selectNo == 5) {
-                boardService.boardRemove();
+                boardService.delete();
             } else if (selectNo == 6) {
-                boardService.boardSearch();
+                boardService.search();
             } else if (selectNo == 0) {
-                System.out.println("시스템을 종료합니다.");
                 run = false;
-            } else {
-                System.out.println("지금 주문하신 번호는 없는 메뉴 번호입니다.");
-                System.out.println("다시 입력해주세요");
             }
         }
     }

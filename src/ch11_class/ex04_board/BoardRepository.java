@@ -6,22 +6,12 @@ import java.util.List;
 public class BoardRepository {
     private static List<BoardDTO> boardDTOList = new ArrayList<>();
 
-    public boolean boardCreate(BoardDTO boardDTO) {
+    public boolean save(BoardDTO boardDTO) {
         return boardDTOList.add(boardDTO);
     }
 
-    public List<BoardDTO> boardIndex() {
+    public List<BoardDTO> findAll() {
         return boardDTOList;
-    }
-
-    public BoardDTO check(Long id, String boardPass) {
-        BoardDTO check = null;
-        for (int i = 0; i < boardDTOList.size(); i++) {
-            if (id.equals(boardDTOList.get(i).getId()) && boardPass.equals(boardDTOList.get(i).getBoardPass())) {
-                check = boardDTOList.get(i);
-            }
-        }
-        return check;
     }
 
     public boolean updateHits(Long id) {
@@ -30,7 +20,8 @@ public class BoardRepository {
                 // 기존 조회수 값을 가져옴
                 int hits = boardDTOList.get(i).getBoardHits();
                 // 1 증가 시킴
-                hits += 1;
+                hits = hits + 1;
+                // 조회수 필드에 저장
                 boardDTOList.get(i).setBoardHits(hits);
                 return true;
             }
@@ -38,7 +29,7 @@ public class BoardRepository {
         return false;
     }
 
-    public BoardDTO boardInqure(Long id) {
+    public BoardDTO findById(Long id) {
         for (int i = 0; i < boardDTOList.size(); i++) {
             if (id.equals(boardDTOList.get(i).getId())) {
                 return boardDTOList.get(i);
@@ -47,31 +38,31 @@ public class BoardRepository {
         return null;
     }
 
-    public boolean boardUpdate(String boardTitle, String boardContents) {
-        boolean result = false;
+    public boolean update(Long id, String boardTitle, String boardContents) {
         for (int i = 0; i < boardDTOList.size(); i++) {
-            boardDTOList.get(i).setBoardTitle(boardTitle);
-            boardDTOList.get(i).setBoardContents(boardContents);
-            result = true;
+            if (id.equals(boardDTOList.get(i).getId())) {
+                boardDTOList.get(i).setBoardTitle(boardTitle);
+                boardDTOList.get(i).setBoardContents(boardContents);
+                return true;
+            }
         }
-        return result;
+        return false;
     }
 
-    public boolean boardRemove(Long id) {
-        boolean result = false;
+    public boolean delete(Long id) {
         for (int i = 0; i < boardDTOList.size(); i++) {
             if (id.equals(boardDTOList.get(i).getId())) {
                 boardDTOList.remove(i);
-                result = true;
+                return true;
             }
         }
-        return result;
+        return false;
     }
 
-    public List<BoardDTO> boardSearch(String findWord) {
+    public List<BoardDTO> search(String q) {
         List<BoardDTO> searchList = new ArrayList<>();
         for (int i = 0; i < boardDTOList.size(); i++) {
-            if (boardDTOList.get(i).getBoardTitle().contains(findWord)) {
+            if (boardDTOList.get(i).getBoardTitle().contains(q)) {
                 searchList.add(boardDTOList.get(i));
             }
         }

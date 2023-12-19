@@ -29,9 +29,9 @@ public class BoardDTO {
     private Long id;
     private String boardTitle;
     private String boardWriter;
-    private String boardContents;
     private String boardPass;
-    private int boardHits;
+    private String boardContents;
+    private int boardHits = 0;
     private String createdAt;
 
     public Long getId() {
@@ -58,20 +58,20 @@ public class BoardDTO {
         this.boardWriter = boardWriter;
     }
 
-    public String getBoardContents() {
-        return boardContents;
-    }
-
-    public void setBoardContents(String boardContents) {
-        this.boardContents = boardContents;
-    }
-
     public String getBoardPass() {
         return boardPass;
     }
 
     public void setBoardPass(String boardPass) {
         this.boardPass = boardPass;
+    }
+
+    public String getBoardContents() {
+        return boardContents;
+    }
+
+    public void setBoardContents(String boardContents) {
+        this.boardContents = boardContents;
     }
 
     public int getBoardHits() {
@@ -91,16 +91,17 @@ public class BoardDTO {
     }
 
     public BoardDTO() {
+
     }
 
-    private static Long inValue = 1L;
+    private static Long idValue = 1L;
 
-    public BoardDTO(String boardTitle, String boardWriter, String boardContents, String boardPass) {
-        this.id = inValue++;
+    public BoardDTO(String boardTitle, String boardWriter, String boardPass, String boardContents) {
+        this.id = idValue++;
         this.boardTitle = boardTitle;
         this.boardWriter = boardWriter;
-        this.boardContents = boardContents;
         this.boardPass = boardPass;
+        this.boardContents = boardContents;
         this.boardHits = 0;
         this.createdAt = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
     }
