@@ -103,11 +103,11 @@ public class BoardService {
         System.out.print("검색를 입력해주세요: ");
         String findWord = scanner.nextLine();
         List<BoardDTO> boardDTOList = boardRepository.boardSearch(findWord);
-        if(boardDTOList.size()>0){
-            for (BoardDTO boardDTO: boardDTOList){
+        if (boardDTOList.size() > 0) {
+            for (BoardDTO boardDTO : boardDTOList) {
                 System.out.println("boardDTO = " + boardDTO);
             }
-        }else {
+        } else {
             System.out.println("검색결과가 없습니다.");
         }
     }
