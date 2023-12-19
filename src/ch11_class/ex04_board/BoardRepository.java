@@ -14,16 +14,6 @@ public class BoardRepository {
         return boardDTOList;
     }
 
-    public boolean boardUpdate(String boardTitle, String boardContents) {
-        boolean result = false;
-        for (int i = 0; i < boardDTOList.size(); i++) {
-            boardDTOList.get(i).setBoardTitle(boardTitle);
-            boardDTOList.get(i).setBoardContents(boardContents);
-            result = true;
-        }
-        return result;
-    }
-
     public BoardDTO check(Long id, String boardPass) {
         BoardDTO check = null;
         for (int i = 0; i < boardDTOList.size(); i++) {
@@ -47,5 +37,36 @@ public class BoardRepository {
             }
         }
         return boardDTO;
+    }
+
+    public boolean boardUpdate(String boardTitle, String boardContents) {
+        boolean result = false;
+        for (int i = 0; i < boardDTOList.size(); i++) {
+            boardDTOList.get(i).setBoardTitle(boardTitle);
+            boardDTOList.get(i).setBoardContents(boardContents);
+            result = true;
+        }
+        return result;
+    }
+
+    public boolean boardRemove(Long id) {
+        boolean result = false;
+        for (int i = 0; i < boardDTOList.size(); i++) {
+            if (id.equals(boardDTOList.get(i).getId())) {
+                boardDTOList.remove(i);
+                result = true;
+            }
+        }
+        return result;
+    }
+
+    public List<BoardDTO> boardSearch(String findWord) {
+        List<BoardDTO> boardDTOS = new ArrayList<>();
+        for (int i = 0; i < boardDTOList.size(); i++) {
+            if (boardDTOList.get(i).getBoardTitle().contains(findWord)) {
+                boardDTOS.add(boardDTOList.get(i));
+            }
+        }
+        return boardDTOS;
     }
 }

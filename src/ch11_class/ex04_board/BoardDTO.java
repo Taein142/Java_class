@@ -83,8 +83,9 @@ public class BoardDTO {
     }
 
     private static Long inValue = 1L;
-    public void view(){
-        boardHits+=1;
+
+    public void view() {
+        boardHits += 1;
     }
 
 
