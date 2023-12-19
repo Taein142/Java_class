@@ -10,7 +10,7 @@ public class BoardMain {
         int selectNo = 0;
         while (run) {
             System.out.println("-----------------------------------------------------------------------------------------");
-            System.out.println("1.글작성 | 2.글목록 | 3.글조회 | 4.글수정 | 5.글삭제 | 6.검색 | 7. | 0.종료");
+            System.out.println("1.글작성 | 2.글목록 | 3.글조회 | 4.글수정 | 5.글삭제 | 6.검색 | 7. 테스트 | 0.종료");
             System.out.println("-----------------------------------------------------------------------------------------");
             System.out.print("선택> ");
             selectNo = scan.nextInt();
@@ -26,6 +26,8 @@ public class BoardMain {
                 boardService.delete();
             } else if (selectNo == 6) {
                 boardService.search();
+            } else if (selectNo == 7) {
+                boardService.testData();
             } else if (selectNo == 0) {
                 run = false;
             }
