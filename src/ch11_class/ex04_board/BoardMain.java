@@ -18,7 +18,6 @@ public class BoardMain {
             } else if (selectNo == 2) {
                 boardService.boardIndex();
             } else if (selectNo == 3) {
-//                boardService.boardIndex();
                 boardService.boardInquire();
             } else if (selectNo == 4) {
                 boardService.boardUpdate();
