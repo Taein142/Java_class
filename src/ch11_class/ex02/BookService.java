@@ -1,7 +1,5 @@
 package ch11_class.ex02;
 
-import ch11_class.ex1.StudentDTO;
-
 import java.util.List;
 import java.util.Scanner;
 

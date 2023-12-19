@@ -1,4 +1,4 @@
-package ch11_class.ex1;
+package ch11_class.ex01;
 
 import java.util.Scanner;
 
