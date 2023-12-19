@@ -46,7 +46,6 @@ public class BoardService {
         } else {
             System.out.println("번호를 다시 입력해주세요: ");
         }
-
     }
 
     public void boardUpdate() {

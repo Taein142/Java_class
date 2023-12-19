@@ -71,7 +71,6 @@ public class BoardDTO {
 
     public void setBoardPass(String boardPass) {
         this.boardPass = boardPass;
-
     }
 
     public int getBoardHits() {
