@@ -13,11 +13,6 @@ public class BoardRepository {
     public List<BoardDTO> boardIndex() {
         return boardDTOList;
     }
-    /* 선생님 답안
-    public List<BoardDTO> findAll() {
-        return boardDTOList;
-    }
-    */
 
     public BoardDTO check(Long id, String boardPass) {
         BoardDTO check = null;
@@ -74,12 +69,12 @@ public class BoardRepository {
     }
 
     public List<BoardDTO> boardSearch(String findWord) {
-        List<BoardDTO> boardDTOS = new ArrayList<>();
+        List<BoardDTO> searchList = new ArrayList<>();
         for (int i = 0; i < boardDTOList.size(); i++) {
             if (boardDTOList.get(i).getBoardTitle().contains(findWord)) {
-                boardDTOS.add(boardDTOList.get(i));
+                searchList.add(boardDTOList.get(i));
             }
         }
-        return boardDTOS;
+        return searchList;
     }
 }

@@ -1,5 +1,8 @@
 package ch11_class.ex04_board;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class BoardDTO {
 //        ## 자바 게시판 프로젝트
 //        ### 주요 기능
@@ -29,6 +32,7 @@ public class BoardDTO {
     private String boardContents;
     private String boardPass;
     private int boardHits;
+    private String createdAt;
 
     public Long getId() {
         return id;
@@ -78,6 +82,14 @@ public class BoardDTO {
         this.boardHits = boardHits;
     }
 
+    public String getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
+
     public BoardDTO() {
     }
 
@@ -91,6 +103,7 @@ public class BoardDTO {
         this.boardContents = boardContents;
         this.boardPass = boardPass;
         this.boardHits = 0;
+        this.createdAt = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
     }
 
     @Override
@@ -99,9 +112,10 @@ public class BoardDTO {
                 "id=" + id +
                 ", boardTitle='" + boardTitle + '\'' +
                 ", boardWriter='" + boardWriter + '\'' +
-                ", boardContents='" + boardContents + '\'' +
                 ", boardPass='" + boardPass + '\'' +
+                ", boardContents='" + boardContents + '\'' +
                 ", boardHits=" + boardHits +
+                ", createdAt='" + createdAt + '\'' +
                 '}';
     }
 

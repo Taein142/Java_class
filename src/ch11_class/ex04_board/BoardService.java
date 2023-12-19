@@ -31,17 +31,8 @@ public class BoardService {
 
     public void boardIndex() {
         List<BoardDTO> boardDTOList = boardRepository.boardIndex();
-        System.out.println("boardDTOList = " + boardDTOList);
+        listPrint(boardDTOList);
     }
-    /* 선생님 답안
-    public void findAll() {
-        List<BoardDTO> boardDTOList = boardRepository.findAll();
-        System.out.println("id\t" + "title\t" + "writer\t" + "hits\t");
-        for (BoardDTO boardDTO: boardDTOList) {
-            System.out.println(boardDTO.getId() + "\t" + boardDTO.getBoardTitle() + "\t" +
-                    boardDTO.getBoardWriter() + "\t" + boardDTO.getBoardHits() + "\t");
-        }
-    }*/
 
     public void boardInquire() {
 //        - 글조회
@@ -114,13 +105,24 @@ public class BoardService {
 //          - 입력한 검색어가 포함된 결과를 목록으로 출력
         System.out.print("검색를 입력해주세요: ");
         String findWord = scanner.nextLine();
-        List<BoardDTO> boardDTOList = boardRepository.boardSearch(findWord);
-        if (boardDTOList.size() > 0) {
-            for (BoardDTO boardDTO : boardDTOList) {
-                System.out.println("boardDTO = " + boardDTO);
-            }
+        List<BoardDTO> searchList = boardRepository.boardSearch(findWord);
+        if (searchList.size() > 0) {
+            System.out.println("검색 결과");
+            // 출력 전용 메서드로 검색결과 리스트를 넘겨줌
+            listPrint(searchList);
         } else {
-            System.out.println("검색결과가 없습니다.");
+            System.out.println("검색결과가 없습니다!");
+        }
+    }
+
+    // 목록 출력 전용 메서드
+    // findAll, search 메서드로부터 list데이터를 전달받아서 출력을 하는 베서드
+    private void listPrint(List<BoardDTO> boardDTOList) {
+        System.out.println("id\t" + "title\t" + "writer\t" + "hits\t" + "date\t");
+        for (BoardDTO boardDTO: boardDTOList) {
+            System.out.println(boardDTO.getId() + "\t" + boardDTO.getBoardTitle() + "\t" +
+                    boardDTO.getBoardWriter() + "\t" + boardDTO.getBoardHits() + "\t" +
+                    boardDTO.getCreatedAt() + "\t");
         }
     }
 }
