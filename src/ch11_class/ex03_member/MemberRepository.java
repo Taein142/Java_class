@@ -54,6 +54,7 @@ public class MemberRepository {
     }
 
     public boolean loginCheck(String memberEmail) {
+
         boolean result = true;
         for (int i = 0; i < memberDTOList.size(); i++) {
             if (memberEmail.equals(memberDTOList.get(i).getMemberEmail())) {

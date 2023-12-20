@@ -20,11 +20,11 @@ public class BankMain {
             } else if (selectNo == 2) {
                 bankService.balance();
             } else if (selectNo == 3) {
-//                bankService.deposit();
+                bankService.deposit();
             } else if (selectNo == 4) {
-//                bankService.withdraw();
+                bankService.withdraw();
             } else if (selectNo == 5) {
-//                bankService.findAll();
+                bankService.findList();
             } else if (selectNo == 0) {
                 System.out.println("시스템을 종료합니다.");
                 run = false;

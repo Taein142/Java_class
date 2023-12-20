@@ -60,4 +60,15 @@ public class AccountDTO {
         this.withdraw = withdraw;
         this.backingAt = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
     }
+
+    @Override
+    public String toString() {
+        return "AccountDTO{" +
+                "id=" + id +
+                ", accountNumber='" + accountNumber + '\'' +
+                ", deposit=" + deposit +
+                ", withdraw=" + withdraw +
+                ", backingAt='" + backingAt + '\'' +
+                '}';
+    }
 }
