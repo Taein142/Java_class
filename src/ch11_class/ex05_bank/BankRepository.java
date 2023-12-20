@@ -4,9 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BankRepository {
-    List<ClientDTO> clientList = new ArrayList<>();
-    List<AccountDTO> bankingList = new ArrayList<>();
-    List<AccountDTO> historyList = new ArrayList<>();
+    private static List<ClientDTO> clientList = new ArrayList<>();
+    private static List<AccountDTO> bankingList = new ArrayList<>();
+    private static List<AccountDTO> historyList = new ArrayList<>();
+
 
     public boolean checkAccount(String accountNumber) {
         boolean result = false;
@@ -80,7 +81,7 @@ public class BankRepository {
 
     public List<AccountDTO> findAll(String accountNumber) {
         for (int i = 0; i < bankingList.size(); i++) {
-            if (accountNumber.equals(bankingList.get(i).getAccountNumber())){
+            if (accountNumber.equals(bankingList.get(i).getAccountNumber())) {
                 historyList.add(bankingList.get(i));
             }
         }
@@ -89,7 +90,7 @@ public class BankRepository {
 
     public List<AccountDTO> findDeposit(String accountNumber) {
         for (int i = 0; i < bankingList.size(); i++) {
-            if (accountNumber.equals(bankingList.get(i).getAccountNumber())){
+            if (accountNumber.equals(bankingList.get(i).getAccountNumber()) && bankingList.get(i).getDeposit() != 0) {
                 historyList.add(bankingList.get(i));
             }
         }
@@ -98,7 +99,7 @@ public class BankRepository {
 
     public List<AccountDTO> findWithdraw(String accountNumber) {
         for (int i = 0; i < bankingList.size(); i++) {
-            if (accountNumber.equals(bankingList.get(i).getAccountNumber())){
+            if (accountNumber.equals(bankingList.get(i).getAccountNumber()) && bankingList.get(i).getWithdraw() != 0) {
                 historyList.add(bankingList.get(i));
             }
         }

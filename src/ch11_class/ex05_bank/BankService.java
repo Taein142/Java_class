@@ -110,9 +110,7 @@ public class BankService {
         String accountNumber = scanner.next();
         boolean result = bankRepository.checkAccount(accountNumber);
         int selectNo = 0;
-//        boolean run = true;
-//        if (run{
-//        }
+
         if (result) {
             System.out.println("=========================================");
             System.out.println("1.전체내역  2.입금내역  3.출금내역  4.종료");
@@ -123,19 +121,19 @@ public class BankService {
                 List<AccountDTO> bankingList = bankRepository.findAll(accountNumber);
                 listPrint(bankingList);
             } else if (selectNo == 2) {
-                List<AccountDTO> accountDTO = bankRepository.findDeposit(accountNumber);
-                System.out.println("accountDTO = " + accountDTO);
+                List<AccountDTO> bankingList = bankRepository.findDeposit(accountNumber);
+                listPrint(bankingList);
             } else if (selectNo == 3) {
-                List<AccountDTO> accountDTO = bankRepository.findWithdraw(accountNumber);
-                System.out.println("accountDTO = " + accountDTO);
+                List<AccountDTO> bankingList = bankRepository.findWithdraw(accountNumber);
+                listPrint(bankingList);
             } else if (selectNo == 4) {
                 result = false;
             }
         }
     }
 
-    private void listPrint (List<AccountDTO> bankinglist){
-        System.out.println("id\t"+"accountNumber\t"+"deposit\t"+"withdraw"+"date\t");
+    private void listPrint(List<AccountDTO> bankinglist) {
+        System.out.println("id\t" + "accountNumber\t" + "deposit\t" + "withdraw\t" + "date\t");
         for (AccountDTO accountDTO : bankinglist) {
             System.out.println(accountDTO.getId() + "\t" + accountDTO.getAccountNumber() + "\t" +
                     accountDTO.getDeposit() + "\t" + accountDTO.getWithdraw() + "\t" +
