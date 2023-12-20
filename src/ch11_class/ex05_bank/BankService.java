@@ -14,12 +14,12 @@ public class BankService {
             System.out.print("사용하실 계좌번호를 입력해주세요: ");
             accountNumber = scanner.next();
             checkResult = bankRepository.checkAccount(accountNumber);
-            if (checkResult) {
+            if (!checkResult) {
                 System.out.println("사용 가능한 계좌번호 입니다.");
             } else {
                 System.out.println("이미 사용중인 계좌번호 입니다.");
             }
-        } while (!checkResult);
+        } while (checkResult);
         System.out.print("사용하실 비밀전호를 입력해주세요");
         int clientPass = scanner.nextInt();
         System.out.print("성함을 입력해주세요: ");
@@ -32,5 +32,19 @@ public class BankService {
             System.out.println("고객등록 실패");
         }
 
+    }
+
+    public void balance() {
+        System.out.print("계좌번호를 입력해주세요");
+        String accountNumber = scanner.next();
+        boolean checkResult = bankRepository.checkAccount(accountNumber);
+        if (checkResult) {
+            ClientDTO clientDTO = bankRepository.balance(accountNumber);
+            if (clientDTO != null) {
+                System.out.println(clientDTO.getClientName() + "님의 잔액은 " + clientDTO.getBalance() + "원입니다.");
+            }
+        } else {
+            System.out.println("없는 계좌번호 입니다!");
+        }
     }
 }

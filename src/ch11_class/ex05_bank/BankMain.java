@@ -18,7 +18,7 @@ public class BankMain {
             if (selectNo == 1) {
                 bankService.save();
             } else if (selectNo == 2) {
-//                bankService.findMoney();
+                bankService.balance();
             } else if (selectNo == 3) {
 //                bankService.deposit();
             } else if (selectNo == 4) {
