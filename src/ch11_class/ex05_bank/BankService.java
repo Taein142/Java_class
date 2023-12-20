@@ -34,7 +34,6 @@ public class BankService {
         } else {
             System.out.println("고객등록 실패");
         }
-
     }
 
     public void balance() {
@@ -121,11 +120,11 @@ public class BankService {
                 List<AccountDTO> bankingList = bankRepository.findAll(accountNumber);
                 listPrint(bankingList);
             } else if (selectNo == 2) {
-                List<AccountDTO> bankingList = bankRepository.findDeposit(accountNumber);
-                listPrint(bankingList);
+                List<AccountDTO> depositList = bankRepository.findDeposit(accountNumber);
+                listPrint(depositList);
             } else if (selectNo == 3) {
-                List<AccountDTO> bankingList = bankRepository.findWithdraw(accountNumber);
-                listPrint(bankingList);
+                List<AccountDTO> withdrawList = bankRepository.findWithdraw(accountNumber);
+                listPrint(withdrawList);
             } else if (selectNo == 4) {
                 result = false;
             }
