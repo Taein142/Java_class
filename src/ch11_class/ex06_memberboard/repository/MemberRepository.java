@@ -45,6 +45,22 @@ public class MemberRepository {
 
     public boolean memberUpdate(String memberName, String memberMobile) {
         boolean result = false;
-        for (MemberDTO memberDTO: )
+        for (MemberDTO memberDTO : memberDTOList) {
+            memberDTO.setMemberName(memberName);
+            memberDTO.setMemberMobile(memberMobile);
+            result = true;
+        }
+        return result;
+    }
+
+    public boolean memberDelete(String memberEmail, String memberPass) {
+        boolean result = false;
+        for (MemberDTO memberDTO : memberDTOList) {
+            if (memberEmail.equals(memberDTO.getMemberEmail()) && memberPass.equals(memberDTO.getMemberPassword())) {
+                memberDTOList.remove(memberDTO);
+                result = true;
+            }
+        }
+        return result;
     }
 }

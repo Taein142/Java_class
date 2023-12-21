@@ -87,4 +87,37 @@ public class MemberService {
             System.out.println("로그인해야 이용할 수 있는 서비스 입니다.");
         }
     }
+
+    public void memberDelete() {
+        if (CommonVariables.loginEmail != null) {
+            System.out.println("이메일와 비밀번호를 입력해주세요");
+            System.out.print("이메일: ");
+            String memberEmail = scanner.next();
+            System.out.print("비밀번호: ");
+            String memberPass = scanner.next();
+            MemberDTO check = memberRepository.login(memberEmail, memberPass);
+            if (check != null) {
+                boolean delete = memberRepository.memberDelete(memberEmail, memberPass);
+                if (delete) {
+                    System.out.println("회원 탈퇴가 완료되었습니다.");
+                    System.out.println("지금까지 저희와 함께해주셔서 감사합니다.");
+                } else {
+                    System.out.println("탈퇴, 그러한 것은 존재하지 않습니다.");
+                    System.out.println("저희와 영원히 함께해야 합니다.");
+                }
+            } else {
+                System.out.println("로그인해야 이용할 수 있는 서비스입니다.");
+                System.out.println("로그인 해주세요(근데 진짜 탈퇴할거는 아니지?)");
+            }
+        }
+    }
+
+    public void logout() {
+        if (CommonVariables.loginEmail != null) {
+            CommonVariables.loginEmail = null;
+            System.out.println("로그아웃 되었습니다.");
+        }else {
+            System.out.println("로그인을 해야 로그아웃을 하지 ㅡㅅㅡ");
+        }
+    }
 }

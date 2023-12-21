@@ -36,10 +36,10 @@ public class MainController {
                 memberService.memberUpdate();
             } else if (selecNum1 == 5) {
                 System.out.println("회원탈퇴 메뉴");
-//                memberService.memberDelete();
+                memberService.memberDelete();
             } else if (selecNum1 == 6) {
                 System.out.println("로그아웃 메뉴");
-//                memberService.logout();
+                memberService.logout();
             } else if (selecNum1 == 7) {
                 while (run2) {
                     System.out.println("===== 게시판 =====");
