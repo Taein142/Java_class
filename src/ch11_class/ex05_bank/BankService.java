@@ -143,7 +143,7 @@ public class BankService {
             System.out.print("입력> ");
             int selectNo = scanner.nextInt();
             if (selectNo == 1) {
-                System.out.print("비밀번호를 입력해주세요: ");
+                System.out.print("비밀번호를 입력해주세요: "); // 보내는 사람의 비밀번호
                 String clientPass = scanner.next();
                 if (clientPass.equals(clientFrom.getClientPass()) && money <= clientFrom.getBalance()) {
                     bankRepository.transfer(accountNumberFrom, accountNumberTo, money);

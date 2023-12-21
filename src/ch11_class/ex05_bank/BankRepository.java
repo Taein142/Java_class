@@ -84,13 +84,13 @@ public class BankRepository {
 
     public void transfer(String accountNumberFrom, String accountNumberTo, long money) {
         for (int i = 0; i < clientDTOList.size(); i++) {
-            if (accountNumberFrom.equals(clientDTOList.get(i).getAccountNumber())) {
+            if (accountNumberFrom.equals(clientDTOList.get(i).getAccountNumber())) { // 보내는 사람의 잔액, 거래내역 처리
                 long balance = clientDTOList.get(i).getBalance();
                 balance = balance - money;
                 clientDTOList.get(i).setBalance(balance);
                 AccountDTO accountDTO = new AccountDTO(accountNumberFrom, 0, money);
                 accountDTOList.add(accountDTO);
-            } else if (accountNumberTo.equals(clientDTOList.get(i).getAccountNumber())) {
+            } else if (accountNumberTo.equals(clientDTOList.get(i).getAccountNumber())) { // 받는 사람의 전액, 거래내역 처리
                 long balance = clientDTOList.get(i).getBalance();
                 balance = balance + money;
                 clientDTOList.get(i).setBalance(balance);
