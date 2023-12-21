@@ -9,7 +9,7 @@ public class ClientDTO {
     private String accountNumber; // 계좌번호
     private int clientPass; // 비밀번호
     private String clientCreatedAt; // 가입일자
-    private long balance; // 잔액
+    private long balance = 0; // 잔액
 
     public Long getId() {
         return id;
@@ -64,7 +64,7 @@ public class ClientDTO {
 
     private static Long inValue = 1L;
 
-    public ClientDTO(String clientName, String accountNumber, int clientPass, long balance) {
+    public ClientDTO(String clientName, String accountNumber, int clientPass) {
         this.id = inValue++;
         this.clientName = clientName;
         this.accountNumber = accountNumber;

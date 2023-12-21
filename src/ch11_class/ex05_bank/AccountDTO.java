@@ -6,8 +6,8 @@ import java.time.format.DateTimeFormatter;
 public class AccountDTO {
     private Long id;
     private String accountNumber; // 계좌번호
-    private int deposit; // 입금액
-    private int withdraw; // 출금액
+    private long deposit; // 입금액
+    private long withdraw; // 출금액
     private String backingAt; // 입출금 발생 시간
 
     public Long getId() {
@@ -26,19 +26,19 @@ public class AccountDTO {
         this.accountNumber = accountNumber;
     }
 
-    public int getDeposit() {
+    public long getDeposit() {
         return deposit;
     }
 
-    public void setDeposit(int deposit) {
+    public void setDeposit(long deposit) {
         this.deposit = deposit;
     }
 
-    public int getWithdraw() {
+    public long getWithdraw() {
         return withdraw;
     }
 
-    public void setWithdraw(int withdraw) {
+    public void setWithdraw(long withdraw) {
         this.withdraw = withdraw;
     }
 
@@ -52,8 +52,10 @@ public class AccountDTO {
 
     public AccountDTO() {
     }
+
     private static Long inValue = 1L;
-    public AccountDTO(String accountNumber, int deposit, int withdraw) {
+
+    public AccountDTO(String accountNumber, long deposit, long withdraw) {
         this.id = inValue++;
         this.accountNumber = accountNumber;
         this.deposit = deposit;

@@ -4,23 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BankRepository {
-    private static List<ClientDTO> clientList = new ArrayList<>();
-    private static List<AccountDTO> bankingList = new ArrayList<>();
+    private static List<ClientDTO> clientDTOList = new ArrayList<>();
+    private static List<AccountDTO> accountDTOList = new ArrayList<>();
 
-    public boolean checkAccount(String accountNumber) {
-        boolean result = false;
-        for (ClientDTO clientDTO : clientList) {
+    public ClientDTO checkAccount(String accountNumber) {
+        for (ClientDTO clientDTO : clientDTOList) {
             if (accountNumber.equals(clientDTO.getAccountNumber())) {
-                result = true;
-                break;
+                return clientDTO;
             }
         }
-        return result;
+        return null;
     }
 
     public boolean checkPass(int clientPass) {
         boolean result = false;
-        for (ClientDTO clientDTO : clientList) {
+        for (ClientDTO clientDTO : clientDTOList) {
             if (clientPass == clientDTO.getClientPass()) {
                 result = true;
                 break;
@@ -30,12 +28,12 @@ public class BankRepository {
     }
 
     public boolean save(ClientDTO clientDTO) {
-        return clientList.add(clientDTO);
+        return clientDTOList.add(clientDTO);
     }
 
     public ClientDTO balance(String accountNumber) {
         ClientDTO clientDTO = null;
-        for (ClientDTO dto : clientList) {
+        for (ClientDTO dto : clientDTOList) {
             if (accountNumber.equals(dto.getAccountNumber())) {
                 clientDTO = dto;
             }
@@ -43,69 +41,62 @@ public class BankRepository {
         return clientDTO;
     }
 
-    public ClientDTO deposit(String accountNumber, int deposit) {
-        ClientDTO clientDTO = null;
-        long money = 0;
-        for (int i = 0; i < clientList.size(); i++) {
-            if (accountNumber.equals(clientList.get(i).getAccountNumber())) {
-                money = clientList.get(i).getBalance();
-                money += deposit;
-                clientList.get(i).setBalance(money);
-                clientDTO = clientList.get(i);
+    public boolean deposit(String accountNumber, long deposit) {
+        for (ClientDTO clientDTO : clientDTOList) {
+            if (accountNumber.equals(clientDTO.getAccountNumber())) {
+                long balance = clientDTO.getBalance();
+                balance = balance + deposit;
+                clientDTO.setBalance(balance);
+                AccountDTO accountDTO = new AccountDTO(accountNumber, deposit, 0);
+                accountDTOList.add(accountDTO);
+                return true;
             }
         }
-        return clientDTO;
+        return false;
     }
 
-    public ClientDTO withdraw(String accountNumber, int withdraw) {
-        ClientDTO clientDTO = null;
-        long money = 0;
-        for (int i = 0; i < clientList.size(); i++) {
-            if (accountNumber.equals(clientList.get(i).getAccountNumber())) {
-                money = clientList.get(i).getBalance();
-                if (money >= withdraw) {
-                    money -= withdraw;
-                    clientList.get(i).setBalance(money);
-                    clientDTO = clientList.get(i);
+    public boolean withdraw(String accountNumber, long withdraw) {
+        for (ClientDTO clientDTO : clientDTOList) {
+            if (accountNumber.equals(clientDTO.getAccountNumber())) {
+                long balance = clientDTO.getBalance();
+                if (withdraw > balance) {
+                    return false;
                 }
+                balance = balance - withdraw;
+                clientDTO.setBalance(balance);
+                AccountDTO accountDTO = new AccountDTO(accountNumber, 0, withdraw);
+                accountDTOList.add(accountDTO);
+                return true;
             }
         }
-        return clientDTO;
+        return false;
     }
 
-    public void depowith(AccountDTO accountDTO) {
-        bankingList.add(accountDTO);
-    }
-
-
-    private List<AccountDTO> historyList = new ArrayList<>();
-    private List<AccountDTO> depositList = new ArrayList<>();
-    private List<AccountDTO> withdrawList = new ArrayList<>();
-
-    public List<AccountDTO> findAll(String accountNumber) {
-        for (int i = 0; i < bankingList.size(); i++) {
-            if (accountNumber.equals(bankingList.get(i).getAccountNumber())) {
-                historyList.add(bankingList.get(i));
+    public List<AccountDTO> findList(String accountNumber) {
+        List<AccountDTO> findList = new ArrayList<>();
+        for (AccountDTO accountDTO : accountDTOList) {
+            if (accountNumber.equals(accountDTO.getAccountNumber())) {
+                findList.add(accountDTO);
             }
         }
-        return historyList;
+        return findList;
     }
 
-    public List<AccountDTO> findDeposit(String accountNumber) {
-        for (int i = 0; i < bankingList.size(); i++) {
-            if (accountNumber.equals(bankingList.get(i).getAccountNumber()) && bankingList.get(i).getDeposit() != 0) {
-                depositList.add(bankingList.get(i));
+    public void transfer(String accountNumberFrom, String accountNumberTo, long money) {
+        for (int i = 0; i < clientDTOList.size(); i++) {
+            if (accountNumberFrom.equals(clientDTOList.get(i).getAccountNumber())) {
+                long balance = clientDTOList.get(i).getBalance();
+                balance = balance - money;
+                clientDTOList.get(i).setBalance(balance);
+                AccountDTO accountDTO = new AccountDTO(accountNumberFrom, 0, money);
+                accountDTOList.add(accountDTO);
+            } else if (accountNumberTo.equals(clientDTOList.get(i).getAccountNumber())) {
+                long balance = clientDTOList.get(i).getBalance();
+                balance = balance + money;
+                clientDTOList.get(i).setBalance(balance);
+                AccountDTO accountDTO = new AccountDTO(accountNumberTo, money, 0);
+                accountDTOList.add(accountDTO);
             }
         }
-        return depositList;
-    }
-
-    public List<AccountDTO> findWithdraw(String accountNumber) {
-        for (int i = 0; i < bankingList.size(); i++) {
-            if (accountNumber.equals(bankingList.get(i).getAccountNumber()) && bankingList.get(i).getWithdraw() != 0) {
-                withdrawList.add(bankingList.get(i));
-            }
-        }
-        return withdrawList;
     }
 }

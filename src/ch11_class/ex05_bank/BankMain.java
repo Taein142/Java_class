@@ -10,9 +10,9 @@ public class BankMain {
         int selectNo = 0;
 
         while (run) {
-            System.out.println("=================================================================");
-            System.out.println("1.신규계좌 등록  2.잔액조회  3.입금  4.출금  5.입출금 내역 조회 0.종료");
-            System.out.println("=================================================================");
+            System.out.println("===========================================================================");
+            System.out.println("1.신규계좌 등록  2.잔액조회  3.입금  4.출금  5.입출금 내역 조회 6.계좌이체 0.종료");
+            System.out.println("===========================================================================");
             System.out.print("선택>");
             selectNo = scanner.nextInt();
             if (selectNo == 1) {
@@ -25,11 +25,12 @@ public class BankMain {
                 bankService.withdraw();
             } else if (selectNo == 5) {
                 bankService.findList();
+            } else if (selectNo == 6) {
+                bankService.transfer();
             } else if (selectNo == 0) {
                 System.out.println("시스템을 종료합니다.");
                 run = false;
             } else {
-                System.out.println("돈을 먹었습니다. 꺼억~");
                 System.out.println("메뉴 상의 번호를 입력해주세요");
             }
         }
