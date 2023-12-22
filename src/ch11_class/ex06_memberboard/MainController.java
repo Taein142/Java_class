@@ -43,6 +43,7 @@ public class MainController {
             } else if (selecNum1 == 7) {
                 if (CommonVariables.loginEmail != null) {
                     while (run2) {
+                        run2 = true;
                         System.out.println("===== 게시판 =====");
                         System.out.println("--------------------------------------------------------------------------------");
                         System.out.println("1.글작성 | 2.글목록 | 3.글조회 | 4.글수정 | 5.글삭제 | 6.검색 | 99.sample | 0.종료");
@@ -53,16 +54,16 @@ public class MainController {
                             boardService.write();
                         } else if (selecNum2 == 2) {
                             System.out.println("글목록 메뉴");
-                        boardService.boardList();
+                            boardService.boardList();
                         } else if (selecNum2 == 3) {
                             System.out.println("글조회 메뉴");
-                        boardService.findById();
+                            boardService.findById();
                         } else if (selecNum2 == 4) {
                             System.out.println("글수정 메뉴");
-//                        boardService.boardUpdate();
+                            boardService.boardUpdate();
                         } else if (selecNum2 == 5) {
                             System.out.println("글삭제 메뉴");
-//                        boardService.boardDelete();
+                        boardService.boardDelete();
                         } else if (selecNum2 == 6) {
                             System.out.println("검색 메뉴");
 //                        boardService.search();
@@ -77,6 +78,7 @@ public class MainController {
                 } else {
                     System.out.println("로그인해야 이용할 수 있는 서비스 입니다.");
                     System.out.println("로그인 해주세요!");
+                    System.out.println("");
                 }
             } else if (selecNum1 == 0) {
                 System.out.println("시스템을 종료합니다.");

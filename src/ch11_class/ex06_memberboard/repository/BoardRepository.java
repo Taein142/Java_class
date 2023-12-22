@@ -1,5 +1,6 @@
 package ch11_class.ex06_memberboard.repository;
 
+import ch11_class.ex06_memberboard.common.CommonVariables;
 import ch11_class.ex06_memberboard.dto.BoardDTO;
 
 import java.util.ArrayList;
@@ -30,13 +31,33 @@ public class BoardRepository {
     }
 
     public BoardDTO findByID(Long id) {
-        for (BoardDTO boardDTO: boardDTOList){
-            if (id.equals(boardDTO.getId())){
+        for (BoardDTO boardDTO : boardDTOList) {
+            if (id.equals(boardDTO.getId())) {
                 return boardDTO;
             }
         }
         return null;
     }
 
-    // String long = CommonVariables.loginEmail;
+    public boolean boardUpdate(Long id, String boardTitle, String boardContents) {
+        boolean result = false;
+        for (BoardDTO boardDTO : boardDTOList) {
+            if (id.equals(boardDTO.getId())) {
+                boardDTO.setBoardTitle(boardTitle);
+                boardDTO.setBoardContents(boardContents);
+                result = true;
+            }
+        }
+        return result;
+    }
+
+    public boolean boardDelete(Long id) {
+        for (int i = 0; i < boardDTOList.size(); i++) {
+            if (id.equals(boardDTOList.get(i).getId())) {
+                boardDTOList.remove(i);
+                return true;
+            }
+        }
+        return false;
+    }
 }
