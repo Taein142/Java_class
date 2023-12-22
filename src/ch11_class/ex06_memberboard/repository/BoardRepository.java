@@ -60,4 +60,14 @@ public class BoardRepository {
         }
         return false;
     }
+
+    public List<BoardDTO> search(String word) {
+        List<BoardDTO> searchList = new ArrayList<>();
+        for (BoardDTO boardDTO : boardDTOList){
+            if (boardDTO.getBoardTitle().contains(word)){
+                searchList.add(boardDTO);
+            }
+        }
+        return searchList;
+    }
 }

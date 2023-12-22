@@ -63,13 +63,13 @@ public class MainController {
                             boardService.boardUpdate();
                         } else if (selecNum2 == 5) {
                             System.out.println("글삭제 메뉴");
-                        boardService.boardDelete();
+                            boardService.boardDelete();
                         } else if (selecNum2 == 6) {
                             System.out.println("검색 메뉴");
-//                        boardService.search();
+                            boardService.search();
                         } else if (selecNum2 == 99) {
                             System.out.println("셈플");
-//                        boardService.boardDelete();
+//                        boardService.sample();
                         } else if (selecNum2 == 0) {
                             System.out.println("개시판을 종료합니다.");
                             run2 = false;

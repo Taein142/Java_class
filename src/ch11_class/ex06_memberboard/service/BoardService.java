@@ -100,4 +100,16 @@ public class BoardService {
             }
         }
     }
+
+    public void search() {
+        System.out.println("검색어를 입력해주세요");
+        System.out.print("검색어> ");
+        String word = scanner.next();
+        List<BoardDTO> searchList = boardRepository.search(word);
+        if (searchList.size() > 0){
+            System.out.println("searchList = " + searchList);
+        }else {
+            System.out.println("검색 결과가 없습니다.");
+        }
+    }
 }
