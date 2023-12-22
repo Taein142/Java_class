@@ -54,11 +54,10 @@ public class CommentDTO {
     }
 
     private static Long inValue = 1L;
-    private static Long boardInValue = 1L;
 
-    public CommentDTO(String commentWriter, String commentContents) {
+    public CommentDTO(Long boardId, String commentWriter, String commentContents) {
         this.id = inValue++;
-        this.boardId = boardInValue++;
+        this.boardId = boardId;
         this.commentWriter = commentWriter;
         this.commentContents = commentContents;
         this.createdAt = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
