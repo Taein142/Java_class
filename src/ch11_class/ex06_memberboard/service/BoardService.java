@@ -28,13 +28,22 @@ public class BoardService {
 
     public void boardList() {
         List<BoardDTO> boardDTOList = boardRepository.boardList();
-        for (BoardDTO boardDTO: boardDTOList){
+        for (BoardDTO boardDTO : boardDTOList) {
             System.out.println("boardDTO = " + boardDTO);
         }
     }
 
 
-    public void findId() {
+    public void findById() {
+        System.out.print("찾으실 글의 id를 입력해주세요");
+        Long id = scanner.nextLong();
+        boolean result = boardRepository.updateHits(id);
+        if (result){
+            BoardDTO boardDTO = boardRepository.findByID(id);
+            System.out.println("boardDTO = " + boardDTO);
+        }else {
+            System.out.println("존재하지 않는 게시글입니다.");
+        }
 
     }
 }

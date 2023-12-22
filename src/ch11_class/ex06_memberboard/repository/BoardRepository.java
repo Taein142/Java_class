@@ -16,5 +16,27 @@ public class BoardRepository {
         return boardDTOList;
     }
 
+    public boolean updateHits(Long id) {
+        boolean result = false;
+        for (BoardDTO boardDTO : boardDTOList) {
+            if (id.equals(boardDTO.getId())) {
+                int hits = boardDTO.getBoardHits();
+                hits++;
+                boardDTO.setBoardHits(hits);
+                result = true;
+            }
+        }
+        return result;
+    }
+
+    public BoardDTO findByID(Long id) {
+        for (BoardDTO boardDTO: boardDTOList){
+            if (id.equals(boardDTO.getId())){
+                return boardDTO;
+            }
+        }
+        return null;
+    }
+
     // String long = CommonVariables.loginEmail;
 }

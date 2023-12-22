@@ -56,7 +56,7 @@ public class MainController {
                         boardService.boardList();
                         } else if (selecNum2 == 3) {
                             System.out.println("글조회 메뉴");
-                        boardService.findId();
+                        boardService.findById();
                         } else if (selecNum2 == 4) {
                             System.out.println("글수정 메뉴");
 //                        boardService.boardUpdate();
