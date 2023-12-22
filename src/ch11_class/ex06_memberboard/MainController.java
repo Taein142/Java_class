@@ -69,7 +69,7 @@ public class MainController {
                             boardService.search();
                         } else if (selecNum2 == 99) {
                             System.out.println("셈플");
-//                        boardService.sample();
+                        boardService.testData();
                         } else if (selecNum2 == 0) {
                             System.out.println("개시판을 종료합니다.");
                             run2 = false;

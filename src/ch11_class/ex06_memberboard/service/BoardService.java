@@ -48,7 +48,7 @@ public class BoardService {
             if (commentDTOList.size() > 0) {
                 if (dto != null) {
                     System.out.println(commentDTOList);
-                }else {
+                } else {
                     System.out.println("작성된 댓글이 없습니다.");
                 }
             } else {
@@ -149,6 +149,14 @@ public class BoardService {
             System.out.println(boardDTO.getId() + "\t" + boardDTO.getBoardTitle() + "\t" +
                     boardDTO.getBoardWriter() + "\t" + boardDTO.getBoardHits() + "\t" +
                     boardDTO.getCreatedAt() + "\t");
+        }
+    }
+
+
+    public void testData() {
+        for (int i = 1; i < 11; i++) {
+            BoardDTO boardDTO = new BoardDTO("title" + i, "witer" + i, "contents" + i);
+            boardRepository.write(boardDTO);
         }
     }
 }
