@@ -39,7 +39,7 @@ public class MemberRepository {
         return memberDTOList.add(newMemberDTO);
     }
 
-    public List<MemberDTO> findAllMember() {
+    public List<MemberDTO> memberList() {
         return memberDTOList;
     }
 

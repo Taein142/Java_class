@@ -57,8 +57,8 @@ public class MemberService {
         }
     }
 
-    public void findAllMember() {
-        List<MemberDTO> memberDTOList = memberRepository.findAllMember();
+    public void memberList() {
+        List<MemberDTO> memberDTOList = memberRepository.memberList();
         for (MemberDTO memberDTO : memberDTOList) {
             System.out.println("memberDTO = " + memberDTO);
         }
