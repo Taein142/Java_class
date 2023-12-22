@@ -28,9 +28,7 @@ public class BoardService {
 
     public void boardList() {
         List<BoardDTO> boardDTOList = boardRepository.boardList();
-        for (BoardDTO boardDTO : boardDTOList) {
-            System.out.println("boardDTO = " + boardDTO);
-        }
+        listPrint(boardDTOList);
     }
 
     public void findById() {
@@ -106,10 +104,19 @@ public class BoardService {
         System.out.print("검색어> ");
         String word = scanner.next();
         List<BoardDTO> searchList = boardRepository.search(word);
-        if (searchList.size() > 0){
-            System.out.println("searchList = " + searchList);
-        }else {
+        if (searchList.size() > 0) {
+            listPrint(searchList);
+        } else {
             System.out.println("검색 결과가 없습니다.");
+        }
+    }
+
+    private void listPrint(List<BoardDTO> boardDTOList) {
+        System.out.println("id\t" + "title\t" + "writer\t" + "hits\t" + "date\t");
+        for (BoardDTO boardDTO : boardDTOList) {
+            System.out.println(boardDTO.getId() + "\t" + boardDTO.getBoardTitle() + "\t" +
+                    boardDTO.getBoardWriter() + "\t" + boardDTO.getBoardHits() + "\t" +
+                    boardDTO.getCreatedAt() + "\t");
         }
     }
 }
