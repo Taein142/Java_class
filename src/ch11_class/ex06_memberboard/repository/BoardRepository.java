@@ -1,13 +1,12 @@
 package ch11_class.ex06_memberboard.repository;
 
-import ch11_class.ex06_memberboard.common.CommonVariables;
 import ch11_class.ex06_memberboard.dto.BoardDTO;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class BoardRepository {
-    List<BoardDTO> boardDTOList = new ArrayList<>();
+    private static List<BoardDTO> boardDTOList = new ArrayList<>();
 
     public boolean write(BoardDTO boardDTO) {
         return boardDTOList.add(boardDTO);
@@ -63,8 +62,8 @@ public class BoardRepository {
 
     public List<BoardDTO> search(String word) {
         List<BoardDTO> searchList = new ArrayList<>();
-        for (BoardDTO boardDTO : boardDTOList){
-            if (boardDTO.getBoardTitle().contains(word)){
+        for (BoardDTO boardDTO : boardDTOList) {
+            if (boardDTO.getBoardTitle().contains(word)) {
                 searchList.add(boardDTO);
             }
         }

@@ -42,8 +42,8 @@ public class MainController {
                 memberService.logout();
             } else if (selecNum1 == 7) {
                 if (CommonVariables.loginEmail != null) {
+                    run2 = true;
                     while (run2) {
-                        run2 = true;
                         System.out.println("===== 게시판 =====");
                         System.out.println("--------------------------------------------------------------------------------");
                         System.out.println("1.글작성 | 2.글목록 | 3.글조회 | 4.글수정 | 5.글삭제 | 6.검색 | 99.sample | 0.종료");

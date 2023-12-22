@@ -2,13 +2,16 @@ package ch11_class.ex06_memberboard.service;
 
 import ch11_class.ex06_memberboard.common.CommonVariables;
 import ch11_class.ex06_memberboard.dto.BoardDTO;
+import ch11_class.ex06_memberboard.dto.CommentDTO;
 import ch11_class.ex06_memberboard.repository.BoardRepository;
+import ch11_class.ex06_memberboard.repository.CommentRepository;
 
 import java.util.List;
 import java.util.Scanner;
 
 public class BoardService {
     BoardRepository boardRepository = new BoardRepository();
+    CommentRepository commentRepository = new CommentRepository();
     Scanner scanner = new Scanner(System.in);
 
     public void write() {
@@ -38,10 +41,39 @@ public class BoardService {
         if (result) {
             BoardDTO boardDTO = boardRepository.findByID(id);
             System.out.println("boardDTO = " + boardDTO);
+            List<CommentDTO> commentDTOList = commentRepository.comment();
+            System.out.println("===== 댓글 =====");
+            int selectNum = 0;
+            CommentDTO dto = commentRepository.commentCheck(id);
+            if (commentDTOList.size() > 0) {
+                if (dto != null) {
+                    System.out.println(commentDTOList);
+                }else {
+                    System.out.println("작성된 댓글이 없습니다.");
+                }
+            } else {
+                System.out.println("작성된 댓글이 없습니다.");
+            }
+            System.out.println("댓글을 작성하시려면 1번");
+            System.out.println("메뉴로 돌아가시려면 2번");
+            selectNum = scanner.nextInt();
+
+            if (selectNum == 1) {
+                System.out.println("댓글을 작성해주세요");
+                String comment = scanner.next();
+                CommentDTO commentDTO = new CommentDTO(id, CommonVariables.loginEmail, comment);
+                boolean commentResult = commentRepository.save(commentDTO);
+                if (commentResult) {
+                    System.out.println("댓글 작성 성공");
+                } else {
+                    System.out.println("댓글 작성 실패");
+                }
+            } else if (selectNum == 2) {
+                System.out.println("글작성 메뉴로 돌아갑니다.");
+            }
         } else {
             System.out.println("존재하지 않는 게시글입니다.");
         }
-
     }
 
     public void boardUpdate() {
