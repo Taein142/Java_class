@@ -38,13 +38,12 @@ public class MemberRepository {
     }
 
     public MemberDTO login(String memberEmail, String memberPassword) {
-        MemberDTO memberDTO = null;
         for (Long i : memberDTOMap.keySet()) {
             if (memberEmail.equals(memberDTOMap.get(i).getMemberEmail()) && memberPassword.equals(memberDTOMap.get(i).getMemberPassword())) {
-                memberDTO = memberDTOMap.get(i);
+                return memberDTOMap.get(i);
             }
         }
-        return memberDTO;
+        return null;
     }
 
     public Map<Long, MemberDTO> findAll() {
