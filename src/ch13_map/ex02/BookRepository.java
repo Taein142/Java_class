@@ -1,7 +1,5 @@
 package ch13_map.ex02;
 
-import ch10_class.ex05.Book;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

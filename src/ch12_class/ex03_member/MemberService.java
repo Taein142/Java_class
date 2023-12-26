@@ -44,7 +44,7 @@ public class MemberService {
     public void login() {
         System.out.println("이메일과 비밀번호를 입력해 주세요.");
         System.out.print("이메일: ");
-       String memberEmail = scanner.next();
+        String memberEmail = scanner.next();
         System.out.print("비밀번호: ");
         String memberPassword = scanner.next();
         MemberDTO loginResult = memberRepository.login(memberEmail, memberPassword);
