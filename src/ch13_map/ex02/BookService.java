@@ -1,5 +1,6 @@
 package ch13_map.ex02;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -60,6 +61,31 @@ public class BookService {
             }
         } else {
             System.out.println("조회결과가 없습니다.");
+        }
+    }
+
+    public void delete() {
+        System.out.print("삭제할 id: ");
+        Long id = scanner.nextLong();
+        boolean result = bookRepository.delete(id);
+        if (result) {
+            System.out.println("삭제 성공");
+        } else {
+            System.out.println("삭제 실패");
+        }
+    }
+
+    public void search() {
+        System.out.print("검색어: ");
+        String bookTitle = scanner.next();
+        List<BookDTO> bookDTOList = bookRepository.search(bookTitle);
+        // 검색 결과가 여러개일 수 있으니 List타입으로 받는다.
+        if (bookDTOList.size() > 0) {
+            for (BookDTO bookDTO : bookDTOList) {
+                System.out.println("bookDTO = " + bookDTO);
+            }
+        } else {
+            System.out.println("검색 결과가 없습니다.");
         }
     }
 }

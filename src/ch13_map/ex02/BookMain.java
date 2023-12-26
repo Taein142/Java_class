@@ -26,9 +26,9 @@ public class BookMain {
             } else if (selectNo == 5) {
                 bookService.update();
             } else if (selectNo == 6) {
-//                bookService.delete();
+                bookService.delete();
             } else if (selectNo == 7) {
-//                bookService.search();
+                bookService.search();
             } else if (selectNo == 0) {
                 run = false;
             }
