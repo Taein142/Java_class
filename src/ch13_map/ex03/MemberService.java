@@ -67,7 +67,7 @@ public class MemberService {
         if (loginEmail != null) {
             System.out.println("비밀번호를 입력해주세요");
             String memberPassword = scanner.next();
-            MemberDTO memberDTO = memberRepository.checkPassword(memberPassword);
+            MemberDTO memberDTO = memberRepository.login(loginEmail, memberPassword);
             if (memberDTO != null) {
                 System.out.println("변경할 정보를 입력하세요");
                 System.out.print("이름: ");

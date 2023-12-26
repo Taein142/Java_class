@@ -16,6 +16,7 @@ public class MemberRepository {
         return false;
     }
 
+    /*
     public MemberDTO checkPassword(String memberPassword) {
         MemberDTO memberDTO = null;
         for (Long i : memberDTOMap.keySet()) {
@@ -25,7 +26,7 @@ public class MemberRepository {
         }
         return memberDTO;
     }
-
+    */
 
     public boolean save(MemberDTO memberDTO) {
         MemberDTO dto = memberDTOMap.put(memberDTO.getId(), memberDTO);
