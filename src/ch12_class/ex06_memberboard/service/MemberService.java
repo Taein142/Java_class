@@ -75,7 +75,7 @@ public class MemberService {
                 String memberName = scanner.next();
                 System.out.print("전화번호");
                 String memberMobile = scanner.next();
-                boolean updateResult = memberRepository.memberUpdate(memberName, memberMobile);
+                boolean updateResult = memberRepository.memberUpdate(CommonVariables.loginEmail, memberName, memberMobile);
                 if (updateResult) {
                     System.out.println("정보 수정이 완료되었습니다.");
                 } else {

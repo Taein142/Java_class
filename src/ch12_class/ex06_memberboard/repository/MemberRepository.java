@@ -43,12 +43,14 @@ public class MemberRepository {
         return memberDTOList;
     }
 
-    public boolean memberUpdate(String memberName, String memberMobile) {
+    public boolean memberUpdate(String loginEmail, String memberName, String memberMobile) {
         boolean result = false;
         for (MemberDTO memberDTO : memberDTOList) {
+            if (loginEmail.equals(memberDTO.getMemberEmail())) {
             memberDTO.setMemberName(memberName);
             memberDTO.setMemberMobile(memberMobile);
             result = true;
+            }
         }
         return result;
     }
