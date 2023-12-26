@@ -74,7 +74,7 @@ public class MemberService {
                 String newMemberName = scanner.next();
                 System.out.print("전화번호: ");
                 String newMemberMobile = scanner.next();
-                boolean updateResult = memberRepository.update(newMemberName, newMemberMobile);
+                boolean updateResult = memberRepository.update(loginEmail, newMemberName, newMemberMobile);
                 if (updateResult) {
                     System.out.println("정보가 수정되었습니다.");
                     System.out.println(memberDTO);

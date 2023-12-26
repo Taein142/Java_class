@@ -50,12 +50,14 @@ public class MemberRepository {
         return memberDTOMap;
     }
 
-    public boolean update(String newMemberName, String newMemberMobile) {
+    public boolean update(String loginEmail, String newMemberName, String newMemberMobile) {
         boolean result = false;
         for (Long i : memberDTOMap.keySet()) {
-            memberDTOMap.get(i).setMemberName(newMemberName);
-            memberDTOMap.get(i).setMemberMobile(newMemberMobile);
-            return true;
+            if (loginEmail.equals(memberDTOMap.get(i).getMemberEmail())) {
+                memberDTOMap.get(i).setMemberName(newMemberName);
+                memberDTOMap.get(i).setMemberMobile(newMemberMobile);
+                return true;
+            }
         }
         return result;
     }
