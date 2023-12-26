@@ -23,5 +23,18 @@ public class Ex01_MapBasic {
             System.out.println("i = " + i);
         }
 
+        // key: String, value: String
+        Map<String, String> map2 = new HashMap<>();
+        map2.put("가", "안녕");
+        map2.put("나", "ㅎㅎㅎ");
+        map2.put("a", "ㅋㅋㅋ");
+        System.out.println(map2.get("a"));
+
+        // 반복문
+        for (String s : map2.keySet()) {
+            System.out.println("s = " + s);
+        }
+        // 위 반복문에서 String의 경우 문서 목차 구조와 같이 순번이 진행됨을 알 수 있다.
+        // 가->a->나->b=>....
     }
 }
