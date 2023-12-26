@@ -36,5 +36,13 @@ public class Ex01_MapBasic {
         }
         // 위 반복문에서 String의 경우 문서 목차 구조와 같이 순번이 진행됨을 알 수 있다.
         // 가->a->나->b=>....
+
+        Map<Long, String> map3 = new HashMap<>();
+        String ss1 = map3.put(1L, "안녕");
+        System.out.println("ss1 = " + ss1); // null
+        String ss2 = map3.put(2L, "hello");
+        System.out.println("ss2 = " + ss2); // null
+        String ss3 = map3.put(1L, "안녕하세요");
+        System.out.println("ss3 = " + ss3); // 안녕
     }
 }
