@@ -30,4 +30,14 @@ public class BookRepository {
         }
         return null;
     }
+
+    public boolean update(Long id, int bookPrice) {
+        for (Long i : bookDTOMap.keySet()) {
+            if (id.equals(bookDTOMap.get(i).getId())) {
+                bookDTOMap.get(i).setBookPrice(bookPrice);
+                return true;
+            }
+        }
+        return false;
+    }
 }

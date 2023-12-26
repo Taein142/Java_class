@@ -30,7 +30,6 @@ public class BookService {
         Map<Long, BookDTO> bookDTOMap = bookRepository.findAll();
         for (Long i : bookDTOMap.keySet()) {
             System.out.println(bookDTOMap.get(i));
-            // 도서 제목만 본다면
             System.out.println(bookDTOMap.get(i).getBookTitle());
         }
     }
@@ -43,6 +42,24 @@ public class BookService {
             System.out.println("bookDTO = " + bookDTO);
         } else {
             System.out.println("조회 결과가 없습니다.");
+        }
+    }
+
+    public void update() {
+        System.out.println("수정할 도서의 id를 입력하세요: ");
+        Long id = scanner.nextLong();
+        BookDTO bookDTO = bookRepository.findById(id);
+        if (bookDTO != null) {
+            System.out.println("수정할 가격을 입력하세요: ");
+            int bookPrice = scanner.nextInt();
+            boolean updateResult = bookRepository.update(id, bookPrice);
+            if (updateResult) {
+                System.out.println("수정 성공");
+            } else {
+                System.out.println("수정 실패");
+            }
+        } else {
+            System.out.println("조회결과가 없습니다.");
         }
     }
 }
