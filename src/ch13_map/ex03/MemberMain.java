@@ -21,11 +21,11 @@ public class MemberMain {
             } else if (selecNo == 3) {
                 memberService.findAll();
             } else if (selecNo == 4) {
-//                memberService.update();
+                memberService.update();
             } else if (selecNo == 5) {
-//                memberService.delete();
+                memberService.delete();
             } else if (selecNo == 6) {
-//                memberService.logout();
+                memberService.logout();
             } else if (selecNo == 0) {
                 System.out.println("시스템을 종료합니다.");
                 run = false;

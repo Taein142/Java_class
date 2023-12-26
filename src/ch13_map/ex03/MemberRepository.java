@@ -16,6 +16,16 @@ public class MemberRepository {
         return false;
     }
 
+    public MemberDTO checkPassword(String memberPassword) {
+        MemberDTO memberDTO = null;
+        for (Long i : memberDTOMap.keySet()) {
+            if (memberPassword.equals(memberDTOMap.get(i).getMemberPassword())) {
+                memberDTO = memberDTOMap.get(i);
+            }
+        }
+        return memberDTO;
+    }
+
 
     public boolean save(MemberDTO memberDTO) {
         MemberDTO dto = memberDTOMap.put(memberDTO.getId(), memberDTO);
@@ -38,5 +48,26 @@ public class MemberRepository {
 
     public Map<Long, MemberDTO> findAll() {
         return memberDTOMap;
+    }
+
+    public boolean update(String newMemberName, String newMemberMobile) {
+        boolean result = false;
+        for (Long i : memberDTOMap.keySet()) {
+            memberDTOMap.get(i).setMemberName(newMemberName);
+            memberDTOMap.get(i).setMemberMobile(newMemberMobile);
+            return true;
+        }
+        return result;
+    }
+
+    public boolean delete(String loginEmail) {
+        boolean result = false;
+        for (Long i : memberDTOMap.keySet()) {
+            if (loginEmail.equals(memberDTOMap.get(i).getMemberEmail())) {
+                memberDTOMap.remove(i);
+                result = true;
+            }
+        }
+        return result;
     }
 }
