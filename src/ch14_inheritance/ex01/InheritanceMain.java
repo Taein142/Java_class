@@ -15,7 +15,7 @@ public class InheritanceMain {
         childClass.hello();
 
         System.out.println("============");
-        // 좌변: 부모타입의 객체, 우변: 자식클래스 tod성자
+        // 좌변: 부모타입의 객체, 우변: 자식클래스 생성자
         ParentClass parentClass1 = new ChildClass();
         parentClass1.hello();;
         parentClass1 = new ParentClass();
