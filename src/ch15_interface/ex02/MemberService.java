@@ -5,7 +5,13 @@ import java.util.Scanner;
 
 public class MemberService {
     private static String loginEmail = null;
+
+    // List를 사용하는 경우
     MemberRepositoryList memberRepository = new MemberRepositoryList();
+
+    // Map을 사용하는 경우
+//    MemberRepositoryList memberRepository = new MemberRepositoryMap();
+
     Scanner scanner = new Scanner(System.in);
 
     public void save() {
