@@ -27,6 +27,7 @@ public class MemberRepositoryMap implements MemberRepository {
         return null;
     }
 
+    @Override
     public Map<Long, MemberDTO> findAll() {
         return memberDTOMap;
     }

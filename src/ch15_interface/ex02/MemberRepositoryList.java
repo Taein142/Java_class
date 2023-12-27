@@ -60,6 +60,7 @@ public class MemberRepositoryList implements MemberRepository {
         return result;
     }
 
+    @Override
     public List<MemberDTO> findAll() {
         return memberDTOList;
     }

@@ -5,6 +5,8 @@ public interface MemberRepository {
 
     MemberDTO login(String memberEmail, String MemberPassword);
 
+    Object findAll();
+
     boolean update(String loginEmail, String mobile);
 
     boolean delete(String loginEmail);
