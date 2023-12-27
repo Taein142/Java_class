@@ -15,7 +15,7 @@ public class MemberMain {
             System.out.println("선택> ");
             selecNo = scanner.nextInt();
             if (selecNo == 1) {
-                memberService.join();
+                memberService.save();
             } else if (selecNo == 2) {
                 memberService.login();
             } else if (selecNo == 3) {

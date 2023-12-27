@@ -8,7 +8,7 @@ public class MemberService {
     MemberRepositoryList memberRepository = new MemberRepositoryList();
     Scanner scanner = new Scanner(System.in);
 
-    public void join() {
+    public void save() {
         // 중복체크 결과를 담을 변수
         boolean checkResult = false;
         String memberEmail;
@@ -17,7 +17,7 @@ public class MemberService {
             System.out.print("이메일: ");
             memberEmail = scanner.next();
             // checkResult가 true => 사용가능(반복문 종료), checkResult가 false => 사용불가(다시 이메일입력)
-            checkResult = memberRepository.loginCheck(memberEmail);
+            checkResult = memberRepository.emailCheck(memberEmail);
             if (checkResult) {
                 System.out.println("사용 가능한 이메일 입니다.");
             } else {
@@ -33,7 +33,7 @@ public class MemberService {
         System.out.print("전화번호: ");
         String memberMobile = scanner.next();
         MemberDTO memberDTO = new MemberDTO(memberEmail, memberPassword, memberName, memberMobile);
-        boolean result1 = memberRepository.join(memberDTO);
+        boolean result1 = memberRepository.save(memberDTO);
         if (result1) {
             System.out.println("가입이 완료되었습니다.");
         } else {
@@ -69,14 +69,14 @@ public class MemberService {
         if (loginEmail != null) {
             System.out.println("비밀번호를 입력해주세요");
             String memberPassword = scanner.next();
-            MemberDTO memberDTO = memberRepository.checkPassword(memberPassword);
+            MemberDTO memberDTO = memberRepository.login(loginEmail, memberPassword);
             if (memberDTO != null) {
                 System.out.println("변경할 정보를 입력하세요");
                 System.out.print("이름: ");
                 String newMemberName = scanner.next();
                 System.out.print("전화번호: ");
                 String newMemberMobile = scanner.next();
-                boolean updateResult = memberRepository.update(loginEmail, newMemberName, newMemberMobile);
+                boolean updateResult = memberRepository.update(loginEmail, newMemberMobile);
                 if (updateResult) {
                     System.out.println("정보가 수정되었습니다.");
                     System.out.println(memberDTO);
